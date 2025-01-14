@@ -7,6 +7,7 @@ import DuplicateRoS from "../Run_of_Shows/Dupicate_RoS";
 import ListPage from "../Run_of_Shows/List_Page";
 import DeleteRoS from "../Run_of_Shows/Delete_RoS";
 import DeleteValidation from "../Run_of_Shows/Validation/Delete_Validation";
+import SearchRoS from "../Run_of_Shows/Search_RoS";
 describe("Automation test", () => {
   let dataSet = {};
   before(() => {
@@ -62,11 +63,17 @@ describe("Automation test", () => {
     const deleteros = new DeleteRoS();
     deleteros.deleteRoS(globalResultTracker);
   });
-  it.only("Delete RoS that attachted with livestream", () => {
+  it("Delete RoS that attachted with livestream", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     const deletevalidation = new DeleteValidation();
     deletevalidation.deleteValidation(globalResultTracker);
+  });
+  it.only("Search RoS", () => {
+    cy.visit(`${dataSet.link}/run-of-shows`);
+    commonAction.itemVisibility(".vs-btn");
+    const searchros = new SearchRoS();
+    searchros.searchRoS(globalResultTracker);
   });
   after(() => {
     cy.then(() => {
