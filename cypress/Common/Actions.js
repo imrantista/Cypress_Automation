@@ -1,0 +1,169 @@
+import Loginpage from "../Login_Auth/Loginpage";
+class CommonActions {
+  //Login_session
+  LoginSession() {
+    beforeEach(function () {
+      cy.fixture("LoginData.json")
+        .as("dataset")
+        .then((dataSet) => {
+          cy.session("user-session", () => {
+            cy.visit(`${dataSet.link}/auth/login`);
+            const login = new Loginpage();
+            login.Newlogin(dataSet.email, dataSet.password);
+          });
+        });
+    });
+  }
+  //Click function
+  clickElement(selector, text = null) {
+    if (text) {
+      cy.get(selector).contains(text).click();
+    } else {
+      cy.get(selector).click();
+    }
+  }
+  //type Function
+  selectAndType(selector, value) {
+    cy.get(selector).type(`${value}`);
+  }
+  //Clear Function
+  clearElement(selector) {
+    cy.get(selector).clear();
+  }
+  //waiting for item visible
+  itemVisibility(selector) {
+    cy.get(selector, { timeout: 10000 }).should("be.visible");
+  }
+  //Element check function
+  checkElementVisibility(
+    selector,
+    expectedText,
+    successMessage,
+    errorMessage,
+    stepToReproduce,
+    resultTracker
+  ) {
+    cy.get("body").then(($body) => {
+      if ($body.find(selector).length > 0) {
+        cy.get(selector)
+          .should("be.visible")
+          .then(($element) => {
+            if ($element.text().includes(expectedText)) {
+              cy.log(`Success: ${successMessage}`);
+              resultTracker.successCount++;
+            } else {
+              cy.log(`Error: ${errorMessage}`);
+              resultTracker.errorMessages.push(errorMessage);
+              resultTracker.errorCount++;
+              cy.log(`${stepToReproduce}`);
+              resultTracker.stepToReproduces.push(stepToReproduce);
+            }
+          });
+      } else {
+        const notFoundMessage = `Selector: ${selector} not found for Element: ${expectedText}`;
+        cy.log(`Error: ${notFoundMessage}`);
+        resultTracker.errorMessages.push(notFoundMessage);
+        resultTracker.errorCount++;
+        cy.log(`${stepToReproduce}`);
+        resultTracker.stepToReproduces.push(stepToReproduce);
+      }
+    });
+  }
+  //Toaster check function
+  logResult(
+    isSuccess,
+    successMessage,
+    errorMessage,
+    stepToReproduce,
+    resultTracker
+  ) {
+    if (isSuccess) {
+      cy.log(`Success: ${successMessage}`);
+      resultTracker.successCount++;
+    } else {
+      cy.log(`Error: ${errorMessage}`);
+      cy.log(`Step to reproduce: ${stepToReproduce}`);
+      resultTracker.errorMessages.push(errorMessage);
+      resultTracker.stepToReproduces.push(stepToReproduce);
+      resultTracker.errorCount++;
+    }
+  }
+  checkToast(
+    expectedText,
+    successMessage,
+    errorMessage,
+    stepToReproduce,
+    resultTracker
+  ) {
+    cy.get("body").then(($body) => {
+      const toastSelector =
+        ".Toastify__toast.Toastify__toast--success, .Toastify__toast.Toastify__toast--error";
+
+      if ($body.find(toastSelector).length > 0) {
+        cy.get(toastSelector)
+          .should("be.visible")
+          .then(($element) => {
+            const isSuccess = $element.text().includes(expectedText);
+            this.logResult(
+              isSuccess,
+              successMessage,
+              errorMessage,
+              stepToReproduce,
+              resultTracker
+            );
+          });
+      } else {
+        this.logResult(
+          false,
+          "",
+          `${expectedText} but Toaster not visible or something else`,
+          stepToReproduce,
+          resultTracker
+        );
+      }
+    });
+  }
+  //Visite product create modal
+  visitProductCreateModal() {
+    cy.fixture("LoginData.json")
+      .as("dataset")
+      .then((data) => {
+        const dataSet = data;
+        cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
+        this.itemVisibility(".vs-btn");
+        this.clickElement(".vs-btn");
+        this.itemVisibility(".vs-modal-header-content");
+        this.clickElement(".vs-modal-header-content", "Add");
+        this.itemVisibility(":nth-child(1) > .inline-flex");
+      });
+  }
+  //vivsite asset create modal
+  visitAssetCreateModal(){
+    cy.fixture("LoginData.json")
+    .as("dataset")
+    .then((data) => {
+      const dataSet = data;
+      cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
+      this.itemVisibility(".vs-btn");
+      this.clickElement(".vs-btn");
+    });
+  }
+  //Visit Livecsope Add user modal
+  visiLivescopeAddAccount(){
+    cy.fixture("LoginData.json")
+    .as("dataset")
+    .then((data) => {
+      const dataSet = data;
+      cy.visit(`${dataSet.link}/livescope`);
+      this.itemVisibility(".vs-btn");
+      this.clickElement(".vs-btn");
+      cy.wait(4000)
+    });
+  }
+  //wait for Toast
+  waitFOrtoast(timeout = 4000){
+    cy.get('.Toastify__toast.Toastify__toast--success, .Toastify__toast.Toastify__toast--error', { timeout})
+    .should('be.visible');
+  }
+}
+export default CommonActions;
