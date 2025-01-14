@@ -160,6 +160,18 @@ class CommonActions {
       cy.wait(4000)
     });
   }
+  //Visit Run of Shows create page
+    visiRoSCraetepage(){
+      cy.fixture("LoginData.json")
+      .as("dataset")
+      .then((data) => {
+        const dataSet = data;
+        cy.visit(`${dataSet.link}/run-of-shows`);
+        this.itemVisibility(".vs-btn");
+        this.clickElement(".vs-btn");
+        this.itemVisibility(".gap-2 > .vs-btn");
+      });
+  }
   //wait for Toast
   waitFOrtoast(timeout = 4000){
     cy.get('.Toastify__toast.Toastify__toast--success, .Toastify__toast.Toastify__toast--error', { timeout})
