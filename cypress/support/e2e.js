@@ -54,34 +54,7 @@ Cypress.Commands.add("ros", () => {
   cy.wait(4000);
   cy.visit(`${testData.data.link}/run-of-shows`);
   cy.get(".vs-btn", { timeout: 50000 }).should("be.visible");
-  //Run of Shows view
-  function viewRoS() {
-    cy.wait(4000);
-    cy.get(
-      ":nth-child(1) > :nth-child(7) > .flex > .bg-primary\\/\\[5\\%\\] > svg"
-    ).click();
-    cy.get(".my-auto", { timeout: 50000 }).should("be.visible");
-    checkToastTextAndElementVisibility(
-      ".mb-6",
-      "Total Run Time",
-      "Total Run Time Found",
-      "Error: Total Run time not found in RoS view page",
-      "RoS->RoS list page->Click on view icon->view page"
-    );
-    checkToastTextAndElementVisibility(
-      ".mb-6",
-      "Moderation",
-      "Moderation Found in view page",
-      "Error: Moderation not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->view page"
-    );
-    checkToastTextAndElementVisibility(
-      ".mb-6",
-      "Export to PDF",
-      "Export to PDF Found in view page",
-      "Error: Export to PDF not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->view page"
-    );
+  //Run of Shows edit
     function rosEditContent() {
       cy.get(
         ":nth-child(1) > .px-4 > :nth-child(1) > .border > .w-1\\/12 > .flex > .text-primaryYellow"
@@ -133,80 +106,6 @@ Cypress.Commands.add("ros", () => {
       cy.wait(4000);
     }
     rosEditContent();
-    cy.get(
-      ":nth-child(1) > .px-4 > :nth-child(1) > .border > .w-1\\/12 > .px-2\\.5"
-    ).click();
-    cy.wait(6000);
-    checkToastTextAndElementVisibility(
-      ":nth-child(2) > .text-right",
-      "Script",
-      "Script Found in RoS view page",
-      "Error: Script not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->RoS details page"
-    );
-    checkToastTextAndElementVisibility(
-      ":nth-child(3) > .text-right",
-      "Colours",
-      "Colours Found in RoS view page",
-      "Error: Colours not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->RoS details page"
-    );
-    checkToastTextAndElementVisibility(
-      ":nth-child(4) > .text-right",
-      "Quantity",
-      "Quantity Found in RoS view page",
-      "Error: Quantity not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->RoS details page"
-    );
-    checkToastTextAndElementVisibility(
-      ":nth-child(5) > .text-right",
-      "RRP",
-      "RRP Found in RoS view page",
-      "Error: RRP not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->RoS details page"
-    );
-    checkToastTextAndElementVisibility(
-      ":nth-child(6) > .text-right",
-      "Offer Price",
-      "Offer Price Found in RoS view page",
-      "Error: Offer Price not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->RoS details page"
-    );
-    checkToastTextAndElementVisibility(
-      ":nth-child(7) > .text-right",
-      "SKU",
-      "SKU Found in RoS view page",
-      "Error:SKU not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->RoS details page"
-    );
-    checkToastTextAndElementVisibility(
-      ":nth-child(8) > .text-right",
-      "Description",
-      "Description Found in RoS view page",
-      "Error: Description not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->RoS details page"
-    );
-    checkToastTextAndElementVisibility(
-      ":nth-child(9) > .text-right",
-      "Category",
-      "Category Found in RoS view page",
-      "Error: Category not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->RoS details page"
-    );
-    checkToastTextAndElementVisibility(
-      ":nth-child(10) > .text-right",
-      "Tag(s)",
-      "Tag(s) Found in RoS view page",
-      "Error: Tag(s) not Found in RoS view page",
-      "RoS->RoS list page->Click on view icon->RoS details page"
-    );
-    cy.wait(2000);
-    cy.get(
-      ":nth-child(1) > .px-4 > :nth-child(1) > .border > .w-1\\/12 > .px-2\\.5"
-    ).click();
-    cy.wait(2000);
-  }
-  viewRoS();
   cy.visit(`${testData.data.link}/run-of-shows`);
   cy.get(".vs-btn", { timeout: 50000 }).should("be.visible");
   //Edit Ros

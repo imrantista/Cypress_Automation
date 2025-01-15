@@ -8,6 +8,7 @@ import ListPage from "../Run_of_Shows/List_Page";
 import DeleteRoS from "../Run_of_Shows/Delete_RoS";
 import DeleteValidation from "../Run_of_Shows/Validation/Delete_Validation";
 import SearchRoS from "../Run_of_Shows/Search_RoS";
+import ViewPage from "../Run_of_Shows/View_Page";
 describe("Automation test", () => {
   let dataSet = {};
   before(() => {
@@ -32,22 +33,22 @@ describe("Automation test", () => {
     roslist.Listpage(globalResultTracker);
   });
   it("RoS create page component check", () => {
-    commonAction.visiRoSCraetepage()
+    commonAction.visiRoSCraetepage();
     const pagecomponent = new CreatePage();
     pagecomponent.pageComponent(globalResultTracker);
   });
   it("Empty content validation check while create ne RoS", () => {
-    commonAction.visiRoSCraetepage()
+    commonAction.visiRoSCraetepage();
     const rosvalidation = new EmptyValidation();
     rosvalidation.Validation(globalResultTracker);
   });
   it("RoS create page scroll to botton and component check", () => {
-    commonAction.visiRoSCraetepage()
+    commonAction.visiRoSCraetepage();
     const endlist = new ListEnd();
     endlist.listEnd(globalResultTracker);
   });
   it("Create new RoS", () => {
-    commonAction.visiRoSCraetepage()
+    commonAction.visiRoSCraetepage();
     const createros = new CreateRoS();
     createros.createRoS(globalResultTracker);
   });
@@ -69,11 +70,21 @@ describe("Automation test", () => {
     const deletevalidation = new DeleteValidation();
     deletevalidation.deleteValidation(globalResultTracker);
   });
-  it.only("Search RoS", () => {
+  it("Search RoS", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     const searchros = new SearchRoS();
     searchros.searchRoS(globalResultTracker);
+  });
+  it.only("RoS view page component check", () => {
+    cy.visit(`${dataSet.link}/run-of-shows`);
+    commonAction.itemVisibility(".vs-btn");
+    commonAction.clickElement(
+      ":nth-child(1) > :nth-child(7) > .flex > .bg-primary\\/\\[5\\%\\] > svg"
+    );
+    commonAction.itemVisibility(".my-auto");
+    const viewros = new ViewPage();
+    viewros.viewPage(globalResultTracker);
   });
   after(() => {
     cy.then(() => {
