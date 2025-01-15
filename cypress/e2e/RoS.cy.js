@@ -9,6 +9,9 @@ import DeleteRoS from "../Run_of_Shows/Delete_RoS";
 import DeleteValidation from "../Run_of_Shows/Validation/Delete_Validation";
 import SearchRoS from "../Run_of_Shows/Search_RoS";
 import ViewPage from "../Run_of_Shows/View_Page";
+import RoSEdit from "../Run_of_Shows/Edit_RoS_Product";
+import RoSProductEdit from "../Run_of_Shows/Edit_RoS_Product";
+import EditRoS from "../Run_of_Shows/Edit_RoS";
 describe("Automation test", () => {
   let dataSet = {};
   before(() => {
@@ -76,7 +79,7 @@ describe("Automation test", () => {
     const searchros = new SearchRoS();
     searchros.searchRoS(globalResultTracker);
   });
-  it.only("RoS view page component check", () => {
+  it("RoS view page component check", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(
@@ -85,6 +88,26 @@ describe("Automation test", () => {
     commonAction.itemVisibility(".my-auto");
     const viewros = new ViewPage();
     viewros.viewPage(globalResultTracker);
+  });
+  it("RoS product edit check", () => {
+    cy.visit(`${dataSet.link}/run-of-shows`);
+    commonAction.itemVisibility(".vs-btn");
+    commonAction.clickElement(
+      ":nth-child(1) > :nth-child(7) > .flex > .text-primaryYellow"
+    );
+    commonAction.itemVisibility(".my-auto");
+    const editrosproduct = new RoSProductEdit();
+    editrosproduct.RoSproductedit(globalResultTracker);
+  });
+  it.only("RoS edit check", () => {
+    cy.visit(`${dataSet.link}/run-of-shows`);
+    commonAction.itemVisibility(".vs-btn");
+    commonAction.clickElement(
+      ":nth-child(1) > :nth-child(7) > .flex > .text-primaryYellow"
+    );
+    commonAction.itemVisibility(".my-auto");
+    const editros = new EditRoS();
+    editros.editRoS(globalResultTracker);
   });
   after(() => {
     cy.then(() => {

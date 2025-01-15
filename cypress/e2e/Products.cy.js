@@ -75,9 +75,12 @@ describe("Automation test", () => {
     const copyproduct = new DuplicateProduct();
     copyproduct.ProductDuplicate(globalResultTracker);
   });
-  it("Edit Product", () => {
+  it.only("Edit Product", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
     commonAction.itemVisibility(".vs-btn");
+    commonAction.clickElement(
+      ":nth-child(1) > :nth-child(11) > .flex > .text-primaryYellow > svg"
+    );
     const editproduct = new EditProduct();
     editproduct.ProductEdit(globalResultTracker);
   });

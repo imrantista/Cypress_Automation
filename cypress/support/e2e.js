@@ -14,100 +14,6 @@ Cypress.Commands.add("ros", () => {
   let errorMessages = [];
   let stepToReproduces = [];
   cy.visit(`${testData.data.link}/run-of-shows`);
-  cy.get(".vs-btn", { timeout: 50000 }).should("be.visible");
-  function checkToastTextAndElementVisibility(
-    selector,
-    expectedText,
-    successMessage,
-    errorMessage,
-    stepToReproduce
-  ) {
-    cy.get("body").then(($body) => {
-      if ($body.find(selector).length > 0) {
-        cy.get(selector)
-          .should("be.visible")
-          .then(($element) => {
-            if ($element.text().includes(expectedText)) {
-              cy.log(`Success: ${successMessage}`);
-              successCount++;
-            } else {
-              cy.log(`Error: ${errorMessage}`);
-              errorMessages.push(errorMessage);
-              errorCount++;
-              cy.log(`${stepToReproduce}`);
-              stepToReproduces.push(stepToReproduce);
-            }
-          });
-      } else {
-        cy.log(
-          `Error: Selector: [${selector}] not found for Element: ${expectedText}`
-        );
-        errorMessages.push(
-          `Selector: [${selector}] not found for Element: ${expectedText}`
-        );
-        errorCount++;
-        cy.log(`${stepToReproduce}`);
-        stepToReproduces.push(stepToReproduce);
-      }
-    });
-  }
-  cy.wait(4000);
-  cy.visit(`${testData.data.link}/run-of-shows`);
-  cy.get(".vs-btn", { timeout: 50000 }).should("be.visible");
-  //Run of Shows edit
-    function rosEditContent() {
-      cy.get(
-        ":nth-child(1) > .px-4 > :nth-child(1) > .border > .w-1\\/12 > .flex > .text-primaryYellow"
-      ).click();
-      cy.wait(4000);
-      cy.get(":nth-child(2) > .quill > .ql-container > .ql-editor").clear();
-      cy.get(":nth-child(2) > .quill > .ql-container > .ql-editor").type(
-        "live Commerce Moving to more positive interaction, informed consumption and more meaningful conversati"
-      );
-      cy.wait(1000);
-      cy.get('[name="minutes"]').clear();
-      cy.get('[name="minutes"]').type(20); //duration
-      cy.get(".gap-3 > .text-white").click();
-      cy.wait(4000);
-      cy.get("body").then(($body) => {
-        if (
-          $body.find(
-            ".Toastify__toast.Toastify__toast--success, .Toastify__toast.Toastify__toast--error"
-          ).length > 0
-        ) {
-          cy.get(
-            ".Toastify__toast.Toastify__toast--success, .Toastify__toast.Toastify__toast--error"
-          )
-            .should("be.visible")
-            .then(($element) => {
-              if ($element.text().includes("Product updated successfully!")) {
-                cy.log('Success: "Product updated successfully!"');
-                successCount++;
-              } else {
-                const errorMessage =
-                  "Error: Unable to update product from RoS moderation page!.";
-                errorMessages.push(errorMessage);
-                errorCount++;
-                const stepToReproduce =
-                  "RoS->RoS list page->Click on moderation icon icon->moderation page->Click on edit icon->Try to update product";
-                stepToReproduces.push(stepToReproduce);
-              }
-            });
-        } else {
-          const errorMessage =
-            "Error: Product updated from RoS moderation page but Toaster not showing or something esle!";
-          errorMessages.push(errorMessage);
-          errorCount++;
-          const stepToReproduce =
-            "RoS->RoS list page->Click on moderation icon icon->moderation page->Click on edit icon->Try to update product";
-          stepToReproduces.push(stepToReproduce);
-        }
-      });
-      cy.wait(4000);
-    }
-    rosEditContent();
-  cy.visit(`${testData.data.link}/run-of-shows`);
-  cy.get(".vs-btn", { timeout: 50000 }).should("be.visible");
   //Edit Ros
   function editRoS() {
     cy.wait(4000);
@@ -160,16 +66,6 @@ Cypress.Commands.add("ros", () => {
     });
   }
   editRoS();
-  //Search
-  function searchRoS() {
-    cy.wait(4000);
-    cy.get(".py-2").clear();
-    cy.get(".py-2").type("Stickler RoS-2");
-    cy.wait(4000);
-    cy.get(".py-2").clear();
-    successCount++
-  }
-  searchRoS();
 
   //RoS moderation
   function moderationRoS() {

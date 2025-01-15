@@ -5,9 +5,6 @@ class EditProduct {
     const commonAction = new CommonActions();
     const randomsku = Math.floor(Math.random() * 200) + 1;
     const newsku = `Ed-${randomsku}-qa-${randomsku + 1}`;
-    commonAction.clickElement(
-      ":nth-child(1) > :nth-child(11) > .flex > .text-primaryYellow > svg"
-    );
     commonAction.itemVisibility(".gap-3 > .text-white");
     commonAction.clearElement("#skuCode");
     commonAction.selectAndType("#skuCode", newsku);
