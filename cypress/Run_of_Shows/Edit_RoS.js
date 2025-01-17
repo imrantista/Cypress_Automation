@@ -10,7 +10,7 @@ class EditRoS{
     cy.get('[data-rbd-draggable-id="1"] > .border').drag(
       ".pt-8 > .\\32 xl\\:mb-4"
     );
-    cy.wait(4000);
+    cy.wait(6000);
     commonAction.clickElement(".flex-end", "Save")
     cy.wait(4000)
     commonAction.checkToast(

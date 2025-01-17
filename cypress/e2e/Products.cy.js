@@ -75,7 +75,7 @@ describe("Automation test", () => {
     const copyproduct = new DuplicateProduct();
     copyproduct.ProductDuplicate(globalResultTracker);
   });
-  it.only("Edit Product", () => {
+  it("Edit Product", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(

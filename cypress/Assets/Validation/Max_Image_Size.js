@@ -4,16 +4,21 @@ class MaxImageSize {
   maxImageSize(resultTracker) {
     const commonAction = new CommonActions();
     const maxfile = "maxsize.JPG";
-    commonAction.clickElement('[role="presentation"] > .flex > .cursor-pointer > svg')
+    commonAction.itemVisibility(
+      '[role="presentation"] > .flex > .cursor-pointer > svg'
+    );
+    commonAction.clickElement(
+      '[role="presentation"] > .flex > .cursor-pointer > svg'
+    );
     cy.get('input[type="file"]').attachFile(maxfile);
-    commonAction.waitFOrtoast();
+    cy.wait(4000);
     commonAction.checkToast(
-        "Image size exceeds 4 MB limit. Please reduce the file size.",
-        "Image size exceeds 4 MB limit. Please reduce the file size.",
-        "Check max image isze validation, image size must be less than 4MB.",
-        "Asset->Click on Add new->Create Product modal will open-> Try to add image more than 4MB",
-        resultTracker
-    )
+      "Image size exceeds 4 MB limit. Please reduce the file size.",
+      "Image size exceeds 4 MB limit. Please reduce the file size.",
+      "Check max image isze validation, image size must be less than 4MB.",
+      "Asset->Click on Add new->Create Product modal will open-> Try to add image more than 4MB",
+      resultTracker
+    );
   }
 }
 export default MaxImageSize;

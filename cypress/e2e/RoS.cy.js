@@ -99,7 +99,7 @@ describe("Automation test", () => {
     const editrosproduct = new RoSProductEdit();
     editrosproduct.RoSproductedit(globalResultTracker);
   });
-  it.only("RoS edit check", () => {
+  it("RoS edit check", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(

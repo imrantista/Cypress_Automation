@@ -14,59 +14,6 @@ Cypress.Commands.add("ros", () => {
   let errorMessages = [];
   let stepToReproduces = [];
   cy.visit(`${testData.data.link}/run-of-shows`);
-  //Edit Ros
-  function editRoS() {
-    cy.wait(4000);
-    cy.get(
-      ":nth-child(1) > :nth-child(7) > .flex > .text-primaryYellow > svg"
-    ).click();
-    cy.wait(4000);
-    cy.get(".flex-end").contains("Clear").click();
-    cy.wait(2000);
-    cy.get('[data-rbd-draggable-id="0"] > .border').drag(".h-\\[500px\\]");
-    cy.wait(4000);
-    cy.get('[data-rbd-draggable-id="1"] > .border').drag(
-      ".pt-8 > .\\32 xl\\:mb-4"
-    );
-    cy.wait(4000);
-    cy.get(".flex-end").contains("Save").click();
-    cy.wait(4000);
-    cy.get("body").then(($body) => {
-      if (
-        $body.find(
-          ".Toastify__toast.Toastify__toast--success, .Toastify__toast.Toastify__toast--error"
-        ).length > 0
-      ) {
-        cy.get(
-          ".Toastify__toast.Toastify__toast--success, .Toastify__toast.Toastify__toast--error"
-        )
-          .should("be.visible")
-          .then(($element) => {
-            if ($element.text().includes("Run of Show updated successfully!")) {
-              cy.log("Success: Run of Show updated successfully!");
-              successCount++;
-            } else {
-              const errorMessage = "Error: Unable to updated Run of Show.";
-              errorMessages.push(errorMessage);
-              errorCount++;
-              const stepToReproduce =
-                "RoS->RoS list page->Click on edit icon->try to edit RoS";
-              stepToReproduces.push(stepToReproduce);
-            }
-          });
-      } else {
-        const errorMessage =
-          "Error: RoS updated but toaster not showing or smoething else.";
-        errorMessages.push(errorMessage);
-        errorCount++;
-        const stepToReproduce =
-          "RoS->RoS list page->Click on edit icon->try to edit RoS";
-        stepToReproduces.push(stepToReproduce);
-      }
-    });
-  }
-  editRoS();
-
   //RoS moderation
   function moderationRoS() {
     cy.wait(4000);
