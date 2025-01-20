@@ -12,6 +12,7 @@ import ViewPage from "../Run_of_Shows/View_Page";
 import RoSEdit from "../Run_of_Shows/Edit_RoS_Product";
 import RoSProductEdit from "../Run_of_Shows/Edit_RoS_Product";
 import EditRoS from "../Run_of_Shows/Edit_RoS";
+import ModeratioPage from "../Run_of_Shows/Moderation_Page";
 describe("Automation test", () => {
   let dataSet = {};
   before(() => {
@@ -108,6 +109,16 @@ describe("Automation test", () => {
     commonAction.itemVisibility(".my-auto");
     const editros = new EditRoS();
     editros.editRoS(globalResultTracker);
+  });
+  it.only("Moderation page componet check", () => {
+    cy.visit(`${dataSet.link}/run-of-shows`);
+    commonAction.itemVisibility(".vs-btn");
+    commonAction.clickElement(
+      ":nth-child(1) > :nth-child(7) > .flex > .bg-\\[\\#FF00FF\\]\\/\\[10\\%\\] > svg"
+    );
+    commonAction.itemVisibility(".my-auto");
+    const moderationpage = new ModeratioPage();
+    moderationpage.moderationPage(globalResultTracker);
   });
   after(() => {
     cy.then(() => {
