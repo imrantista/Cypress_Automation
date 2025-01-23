@@ -1,4 +1,5 @@
 import CommonActions from "../../Common/Actions";
+import "@4tw/cypress-drag-drop";
 class CreateRoS {
   createRoS(resultTracker) {
     const commonAction = new CommonActions();

@@ -161,7 +161,7 @@ class CommonActions {
     });
   }
   //Visit Run of Shows create page
-    visiRoSCraetepage(){
+    visitRoSCraetepage(){
       cy.fixture("LoginData.json")
       .as("dataset")
       .then((data) => {
@@ -170,6 +170,23 @@ class CommonActions {
         this.itemVisibility(".vs-btn");
         this.clickElement(".vs-btn");
         this.itemVisibility(".gap-2 > .vs-btn");
+      });
+  }
+  //visit livestream create modal
+  visitLivestreamCreateModal(){
+    cy.fixture("LoginData.json")
+      .as("dataset")
+      .then((data) => {
+        const dataSet = data;
+        cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
+        this.itemVisibility(".vs-btn");
+        this.clickElement(".vs-btn");
+        this.itemVisibility(".flex-col > .text-\\[18px\\]");
+        this.clickElement(".cursor-pointer > label > .w-20")
+        cy.wait(4000)
+        this.clickElement(".gap-3 > .text-white")
+        this.itemVisibility(".vs-modal-header-content > .flex")
+
       });
   }
   //wait for Toast

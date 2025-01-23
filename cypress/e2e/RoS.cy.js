@@ -37,22 +37,22 @@ describe("Automation test", () => {
     roslist.Listpage(globalResultTracker);
   });
   it("RoS create page component check", () => {
-    commonAction.visiRoSCraetepage();
+    commonAction.visitRoSCraetepage();
     const pagecomponent = new CreatePage();
     pagecomponent.pageComponent(globalResultTracker);
   });
   it("Empty content validation check while create ne RoS", () => {
-    commonAction.visiRoSCraetepage();
+    commonAction.visitRoSCraetepage();
     const rosvalidation = new EmptyValidation();
     rosvalidation.Validation(globalResultTracker);
   });
   it("RoS create page scroll to botton and component check", () => {
-    commonAction.visiRoSCraetepage();
+    commonAction.visitRoSCraetepage();
     const endlist = new ListEnd();
     endlist.listEnd(globalResultTracker);
   });
   it("Create new RoS", () => {
-    commonAction.visiRoSCraetepage();
+    commonAction.visitRoSCraetepage();
     const createros = new CreateRoS();
     createros.createRoS(globalResultTracker);
   });
@@ -110,7 +110,7 @@ describe("Automation test", () => {
     const editros = new EditRoS();
     editros.editRoS(globalResultTracker);
   });
-  it.only("Moderation page componet check", () => {
+  it("Moderation page componet check", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(
