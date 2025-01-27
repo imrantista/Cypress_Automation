@@ -30,57 +30,57 @@ describe("Automation test", () => {
   };
   const commonAction = new CommonActions();
   commonAction.LoginSession();
-  it("Header element check for RoS list page", () => {
+  it("Verify the presence and correctness of the header elements in the RoS page", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     const roslist = new ListPage();
     roslist.Listpage(globalResultTracker);
   });
-  it("RoS create page component check", () => {
+  it("Verify the presence and correctness of elements in the RoS create page", () => {
     commonAction.visitRoSCraetepage();
     const pagecomponent = new CreatePage();
     pagecomponent.pageComponent(globalResultTracker);
   });
-  it("Empty content validation check while create ne RoS", () => {
+  it("Validate the functionality of Empty content while create a new RoS", () => {
     commonAction.visitRoSCraetepage();
     const rosvalidation = new EmptyValidation();
     rosvalidation.Validation(globalResultTracker);
   });
-  it("RoS create page scroll to botton and component check", () => {
+  it("Verify the functionality of RoS create page scroll to botton and component check", () => {
     commonAction.visitRoSCraetepage();
     const endlist = new ListEnd();
     endlist.listEnd(globalResultTracker);
   });
-  it("Create new RoS", () => {
+  it("Validate the functionality of creating a new RoS", () => {
     commonAction.visitRoSCraetepage();
     const createros = new CreateRoS();
     createros.createRoS(globalResultTracker);
   });
-  it("Duplicate RoS", () => {
+  it("Validate the functionality of RoS duplication", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     const rosduplicate = new DuplicateRoS();
     rosduplicate.duplicateRoS(globalResultTracker);
   });
-  it("Delete RoS", () => {
+  it("Validate the functionality of delete RoS", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     const deleteros = new DeleteRoS();
     deleteros.deleteRoS(globalResultTracker);
   });
-  it("Delete RoS that attachted with livestream", () => {
+  it("Validate the functionality of RoS delete validation when it's attachted with livestream", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     const deletevalidation = new DeleteValidation();
     deletevalidation.deleteValidation(globalResultTracker);
   });
-  it("Search RoS", () => {
+  it("Validate the functionality of Search RoS", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     const searchros = new SearchRoS();
     searchros.searchRoS(globalResultTracker);
   });
-  it("RoS view page component check", () => {
+  it("Verify the presence and correctness of the RoS view page component", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(
@@ -90,7 +90,7 @@ describe("Automation test", () => {
     const viewros = new ViewPage();
     viewros.viewPage(globalResultTracker);
   });
-  it("RoS product edit check", () => {
+  it("Validate the functionality of RoS product edit", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(
@@ -100,7 +100,7 @@ describe("Automation test", () => {
     const editrosproduct = new RoSProductEdit();
     editrosproduct.RoSproductedit(globalResultTracker);
   });
-  it("RoS edit check", () => {
+  it("Validate the functionality of edit RoS", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(
@@ -110,7 +110,7 @@ describe("Automation test", () => {
     const editros = new EditRoS();
     editros.editRoS(globalResultTracker);
   });
-  it("Moderation page componet check", () => {
+  it("Verify the presence and correctness of the Moderation page componets", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(

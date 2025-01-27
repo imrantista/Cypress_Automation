@@ -1,4 +1,3 @@
-import { element } from "wd/lib/commands";
 import CommonActions from "../../Common/Actions";
 class ListPage {
   listPage(resultTracker) {

@@ -1,4 +1,7 @@
 import CommonActions from "../Common/Actions";
+import ModalComponents from "../Live_Campaigns/Campaigns/Create_Modal";
+import CampaingListPage from "../Live_Campaigns/Campaigns/List_Page";
+import RequiredFields from "../Live_Campaigns/Campaigns/Required_Fields";
 import CopyLivestream from "../Live_Campaigns/Livestreams/Copy_Livestream";
 import ModalComponent from "../Live_Campaigns/Livestreams/Create/Create_Modal_Component";
 import CreatNew from "../Live_Campaigns/Livestreams/Create/New_Livestream";
@@ -25,56 +28,72 @@ describe("Automation test", () => {
   };
   const commonAction = new CommonActions();
   commonAction.LoginSession();
-  it("Header element check for RoS list page", () => {
+  it.only("Verify the presence and correctness of the header elements in Livestreams list page", () => {
     cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
     commonAction.itemVisibility(".vs-btn");
     const listpage = new ListPage();
     listpage.listPage(globalResultTracker);
   });
-  it("Livestream Create modal component", () => {
+  it("Verify the presence and correctness of elements in Livestreams Create modal", () => {
     commonAction.visitLivestreamCreateModal();
     const modalcomponent = new ModalComponent();
     modalcomponent.modalComponent(globalResultTracker);
   });
-  it("Livestream Create modal required field validation", () => {
+  it("Verify the required field validations in the Livestreams Create modal", () => {
     commonAction.visitLivestreamCreateModal();
     const requiredfields = new FieldValidation();
     requiredfields.fieldValidation(globalResultTracker);
   });
-  it("Create new livestreams", () => {
+  it("Validate the functionality of creating a new Livestream", () => {
     commonAction.visitLivestreamCreateModal();
     const addnew = new CreatNew();
     addnew.createNew(globalResultTracker);
   });
-  it("Livestream copy", () => {
+  it("Validate the functionality of Livestream duplication", () => {
     cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
     commonAction.itemVisibility(".vs-btn");
     const copylivestream = new CopyLivestream();
     copylivestream.copyLivestream(globalResultTracker);
   });
-  it("Livestream name validation", () => {
+  it("Validate the Livestream Name it's must be unique", () => {
     cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
     commonAction.itemVisibility(".vs-btn");
     const nameunique = new NameUnique();
     nameunique.nameUnique(globalResultTracker);
   });
-  it("Edit Livestream", () => {
+  it("Validate the functionality of edit Livestream", () => {
     cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
     commonAction.itemVisibility(".vs-btn");
     const editlivestream = new EditLivestraem();
     editlivestream.editLivestream(globalResultTracker);
   });
-  it("Delete Livestream", () => {
+  it("Validate the functionality of delete Livestream", () => {
     cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
     commonAction.itemVisibility(".vs-btn");
     const deletelivestream = new DeleteLivestream();
     deletelivestream.deleteLivestream(globalResultTracker);
   });
-  it("View Livestream", () => {
+  it("Verify the presence and correctness of elements of the Livestream view page", () => {
     cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
     commonAction.itemVisibility(".vs-btn");
     const viewlivestream = new ViewLivestream();
     viewlivestream.viewLivestream(globalResultTracker);
+  });
+  it("Verify the presence and correctness of hesder elements of the Campaign list page", () => {
+    cy.visit(`${dataSet.link}/live-campaigns?tab=Campaigns`);
+    commonAction.itemVisibility(".vs-btn");
+    const campaignpage  = new CampaingListPage();
+    campaignpage.listPage(globalResultTracker);
+  });
+  it("Verify the presence and correctness of the elements of Campaign create modal", () => {
+    commonAction.visitCampaignCreateModal()
+    const modalelements = new ModalComponents();
+    modalelements.modalComponent(globalResultTracker);
+  });
+  it("Verify the required field validations in the Campaign Create modal", () => {
+    commonAction.visitCampaignCreateModal()
+    const requiredelement = new RequiredFields();
+    requiredelement.requiredFields(globalResultTracker);
   });
   after(() => {
     cy.then(() => {

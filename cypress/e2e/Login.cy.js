@@ -1,6 +1,6 @@
 import Loginpage from "../Login_Auth/Loginpage";
 describe("Automation test", () => {
-  it("Login test", () => {
+  it("Login with valid credencial", () => {
     cy.fixture("LoginData.json").then((data) => {
       const dataSet = data;
       cy.visit(`${dataSet.link}/auth/login`);

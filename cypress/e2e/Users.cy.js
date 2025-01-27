@@ -33,19 +33,19 @@ describe("Automation test", () => {
   };
   const commonAction = new CommonActions();
   commonAction.LoginSession();
-  it("Header element check for user list page", () => {
+  it("Verify the presence and correctness of the header elements in the Invite users list page", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     const userlist = new InviteUserList();
     userlist.inviteListPage(globalResultTracker);
   });
-  it("Check new user invitation", () => {
+  it("Validate the functionality of sending a new user invitation", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     const inviteuser = new NewInvitation();
     inviteuser.newInvitation(globalResultTracker);
   });
-  it("Check own user invitation", () => {
+  it("Validate the functionality of own user invitation", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(".vs-btn > .flex");
@@ -53,7 +53,7 @@ describe("Automation test", () => {
     const inviteownuser = new OwnInvitation();
     inviteownuser.ownInvitation(globalResultTracker);
   });
-  it("Check existing user invitation", () => {
+  it("Validate the functionality of existing user invitation", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(".vs-btn > .flex");
@@ -61,7 +61,7 @@ describe("Automation test", () => {
     const existinguserinvitation = new ExistUserInvitation();
     existinguserinvitation.exitsUserInvitation(globalResultTracker);
   });
-  it("Check pending user invitation", () => {
+  it("Validate the functionality of pending user invitation", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(".vs-btn > .flex");
@@ -72,7 +72,7 @@ describe("Automation test", () => {
     const pendinguserinvitation = new PendingUserInvitation();
     pendinguserinvitation.pendingUserInvitation(globalResultTracker);
   });
-  it("Check user email formate validation", () => {
+  it("Validate the functionality of invalid email formate", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(".vs-btn > .flex");
@@ -80,58 +80,58 @@ describe("Automation test", () => {
     const invalidemailformate = new InvalidEmail();
     invalidemailformate.invalidEmail(globalResultTracker);
   });
-  it("Check user email is required validation", () => {
+  it("Validate the functionality of email is required", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(".vs-btn > .flex");
     const emailrequired = new RequiredEmail();
     emailrequired.requiredEmail(globalResultTracker);
   });
-  it("Check user role is required validation", () => {
+  it("Validate the functionality of role is required", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(".vs-btn > .flex");
     const rolerequired = new RequiredRole();
     rolerequired.requiredRole(globalResultTracker);
   });
-  it("Check user email and role is required validation", () => {
+  it("Validate the functionality of email and role is required", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(".vs-btn > .flex");
     const emailrolerequired = new EmailRoleRequired();
     emailrolerequired.emailroleRequired(globalResultTracker);
   });
-  it("Check resend invitation", () => {
+  it("Validate the functionality of resend invitation", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     const resendinvitation = new ResendInvitation();
     resendinvitation.resendInvitation(globalResultTracker);
   });
-  it("Check delete invitation", () => {
+  it("Validate the functionality of delete invitation", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     const deleteinvitation = new DeleteInvitation();
     deleteinvitation.deleteInvitation(globalResultTracker);
   });
-  it("Check search for invite user page", () => {
+  it("Validate the functionality of search for invite user ", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     const searchinvitation = new SearchInviteUsers();
     searchinvitation.searchUsers(globalResultTracker);
   });
-  it("Check header for users list page ", () => {
+  it("Verify the presence and correctness of the header elements in the users list page ", () => {
     cy.visit(`${dataSet.link}/users?tab=Users`);
     commonAction.itemVisibility(".vs-btn");
     const userlistpage = new UserListPage();
     userlistpage.userListPage(globalResultTracker);
   });
-  it("Check search for users page ", () => {
+  it("Validate the functionality of search for users page ", () => {
     cy.visit(`${dataSet.link}/users?tab=Users`);
     commonAction.itemVisibility(".vs-btn");
     const userserach = new SearchUsers();
     userserach.searchUsers(globalResultTracker);
   });
-  it("Check user account Activation and Deactivation ", () => {
+  it("Validate the functionality of account Activation and Deactivation ", () => {
     for (let i = 0; i < 2; i++) {
       cy.visit(`${dataSet.link}/users?tab=Users`);
       commonAction.itemVisibility(".vs-btn");
@@ -139,13 +139,13 @@ describe("Automation test", () => {
       acctactvdeactv.userActiveDeactive(globalResultTracker);
     }
   });
-  it("Check User role change functionality ", () => {
+  it("Validate the functionality of search for role change", () => {
     cy.visit(`${dataSet.link}/users?tab=Users`);
     commonAction.itemVisibility(".vs-btn");
     const rolechange = new RoleChange();
     rolechange.roleChange(globalResultTracker);
   });
-  it("Check deactivated User login functionality ", () => {
+  it("Validate the functionality of search for when deactivated User try to login", () => {
     cy.visit(`${dataSet.link}/users?tab=Users`);
     commonAction.clickElement(".h-\\[58px\\]");
     commonAction.clickElement(":nth-child(4) > .text-black");

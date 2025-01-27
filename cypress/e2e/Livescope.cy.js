@@ -28,49 +28,49 @@ describe("Automation test", () => {
   };
   const commonAction = new CommonActions();
   commonAction.LoginSession();
-  it("Header element check for livescope list page", () => {
+  it("Verify the presence and correctness of the header elements on the livescope list page", () => {
     cy.visit(`${dataSet.link}/livescope`);
     commonAction.itemVisibility(".vs-btn");
     const listpage = new LivescopeListPage();
     listpage.listPage(globalResultTracker)
   });
-  it("Livescope add new account", () => {
+  it("Validate the functionality of Livescope add new account", () => {
     commonAction.visiLivescopeAddAccount();
     const addaccount = new NewAccount();
     addaccount.newAccount(globalResultTracker)
   });
-  it("Try to add existing account", () => {
+  it("Validate the functionality of add existing account", () => {
     commonAction.visiLivescopeAddAccount();
     const readdaccount = new AccountReadd();
     readdaccount.accountReadd(globalResultTracker)
   });
-  it("Try to activated existing account", () => {
+  it("Validate the functionality of activated existing account", () => {
     commonAction.visiLivescopeAddAccount();
     const activateaccount = new AccountActivated();
     activateaccount.accountActivated(globalResultTracker)
   });
-  it("Try to delete account", () => {
+  it("Validate the functionality of delete account", () => {
     cy.visit(`${dataSet.link}/livescope`);
     commonAction.itemVisibility(".vs-btn");
     const deleteaccount = new AccountDelete();
     deleteaccount.deleteAccount(globalResultTracker)
   });
-  it("Try to add without account country", () => {
+  it("Validate the functionality of add account without country", () => {
     commonAction.visiLivescopeAddAccount();
     const requiredcountry = new RequiredCountry();
     requiredcountry.requiredCountry(globalResultTracker)
   });
-  it("Try to add without account language", () => {
+  it("Validate the functionality of add account without language", () => {
     commonAction.visiLivescopeAddAccount();
     const requiredlanguage = new RequiredLanguage();
     requiredlanguage.requiredLanguage(globalResultTracker)
   });
-  it("Try to add invalid user", () => {
+  it("Validate the functionality of add account when user is invalid", () => {
     commonAction.visiLivescopeAddAccount();
     const accountnotfound = new AccountNotFound();
     accountnotfound.accountNotFound(globalResultTracker)
   });
-  it("Account tracking enable & dusable", () => {
+  it("Validate the functionality of enabling and disabling Account tracking", () => {
     cy.visit(`${dataSet.link}/livescope`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clearElement(".mb-6 > :nth-child(1) > .relative > .py-2")
@@ -78,7 +78,7 @@ describe("Automation test", () => {
     const accounttracking = new AccountTracking();
     accounttracking.accountTracking(globalResultTracker)
   });
-  it("Livescope details page component", () => {
+  it("Verify the presence and correctness of the Livescope details page component", () => {
     cy.visit(`${dataSet.link}/livescope`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clearElement(".mb-6 > :nth-child(1) > .relative > .py-2")
@@ -86,7 +86,7 @@ describe("Automation test", () => {
     const pagecomponent = new PageComponetLivescopeDetailsPage();
     pagecomponent.pageComponent(globalResultTracker)
   });
-  it("Livescope post dashboard component", () => {
+  it("Verify the presence and correctness of the Livescope post dashboard component", () => {
     cy.visit(`${dataSet.link}/livescope`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clearElement(".mb-6 > :nth-child(1) > .relative > .py-2")
@@ -94,7 +94,7 @@ describe("Automation test", () => {
     const postdashcomponenet = new PostDashComponent();
     postdashcomponenet.dashComponent(globalResultTracker)
   });
-  it("Livescope post dashboard Transcription check", () => {
+  it("Validate the functionality of Livescope post dashboard Transcription", () => {
     cy.visit(`${dataSet.link}/livescope`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clearElement(".mb-6 > :nth-child(1) > .relative > .py-2")

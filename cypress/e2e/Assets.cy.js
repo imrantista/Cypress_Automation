@@ -29,39 +29,39 @@ describe("Automation test", () => {
   };
   const commonAction = new CommonActions();
   commonAction.LoginSession();
-  it("Header element check for asset list page", () => {
+  it("Verify the presence and correctness of the header elements in the Asset List page.", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
     const assetlist = new AssetListPage();
     assetlist.listPageHeader(globalResultTracker);
   });
-  it("Element check for asset create modal", () => {
+  it("Verify the presence and correctness of elements in the Asset Create modal.", () => {
     commonAction.visitAssetCreateModal();
     const modalcomponent = new CreateModalComponent();
     modalcomponent.createModalComponent(globalResultTracker);
   });
-  it("Required field check for Asset create modal ", () => {
+  it("Verify the required field validations in the Asset Create modal.", () => {
     commonAction.visitAssetCreateModal();
     const requiredfield = new RequiredField();
     requiredfield.requiredField(globalResultTracker);
   });
-  it("Add new Asset ", () => {
+  it("Validate the functionality of creating a new Asset.", () => {
     commonAction.visitAssetCreateModal();
     const addasset = new AddNewAsset();
     addasset.addAsset(globalResultTracker);
   });
-  it("Check Asset name validation", () => {
+  it("Validate the Asset Name it's must be unique", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
     const namevalidation = new AssetNameValidation();
     namevalidation.assetNameValidation(globalResultTracker);
   });
-  it("Max size check for Asset image", () => {
+  it("Validate the maximum size for the Asset image to ensure it meets the upload requirements.", () => {
     commonAction.visitAssetCreateModal();
     const maximagesize = new MaxImageSize();
     maximagesize.maxImageSize(globalResultTracker);
   });
-  it("Add new asset in RoS page", () => {
+  it("Validate the functionality of creating a new Asset from RoS page", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(".vs-btn");
@@ -71,32 +71,32 @@ describe("Automation test", () => {
     const addrosasset = new AddNewAssetInRoS();
     addrosasset.addAssetRoS(globalResultTracker);
   });
-  it("Check Asset duplication", () => {
+  it("Validate the functionality of asset duplication", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
     const duplicateasset = new DuplicateAsset()
     duplicateasset.AssettDuplicate(globalResultTracker);
   });
-  it("Check Assset edit functinality", () => {
+  it("Validate the functionality of asset edit", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
     const editasset = new EditAsset()
     editasset.editAsset(globalResultTracker);
   });
-  it("Check asset view page comonent", () => {
+  it("Verify the presence and correctness of elements on the Asset View page", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(":nth-child(1) > :nth-child(8) > .flex > .bg-primary\\/\\[5\\%\\] > svg");
     const viewasset = new ViewAsset()
     viewasset.assetView(globalResultTracker);
   });
-  it("Check Assset search functinality", () => {
+  it("Validate the functionality of asset search", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
     const searchasset = new AssetSearch()
     searchasset.assetSearch(globalResultTracker);
   });
-  it("check Asset deletion", () => {
+  it("Validate the functionality of asset delete", () => {
     for (let i = 0; i < 2; i++) {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
@@ -104,7 +104,7 @@ describe("Automation test", () => {
     deleteasset.deleteAsset(globalResultTracker);
     }
   });
-  it("Asset delete validation check", () => {
+  it("Validate the functionality of Asset delete validation when it's attached with RoS", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
     const deleteassetvalidation = new AssetDeleteValidation()

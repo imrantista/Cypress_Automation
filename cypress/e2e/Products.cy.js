@@ -30,52 +30,52 @@ describe("Automation test", () => {
       });
   });
   commonAction.LoginSession();
-  it("Product list page header check", () => {
+  it("Verify the presence and correctness of the header elements in the Product List page.", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
     commonAction.itemVisibility(".vs-btn");
     const productlist = new ProductList();
     productlist.pageHeader(globalResultTracker);
   });
-  it("Product create modal component check", () => {
+  it("Verify the presence and correctness of the Product create modal component", () => {
     commonAction.visitProductCreateModal();
     const ceatemodal = new CreateModalComponent();
     ceatemodal.ModalComponentCheck(globalResultTracker);
   });
-  it("Required filed check for product create modal", () => {
+  it("Verify the required field validations in the Product Create modal.", () => {
     commonAction.visitProductCreateModal();
     commonAction.clickElement(".gap-3 > .bg-primary");
     const requidfield = new ModalComponentValidation();
     requidfield.RequiredFieldValidation(globalResultTracker);
   });
-  it("Add new product", () => {
+  it("Validate the functionality of creating a new Product.", () => {
     commonAction.visitProductCreateModal();
     const addproduct = new AddNewProduct();
     addproduct.CreateProduct(globalResultTracker);
   });
-  it("Product Image max size validation check", () => {
+  it("Validate the maximum size for the Product image to ensure it meets the upload requirements.", () => {
     commonAction.visitProductCreateModal();
     const imagesize = new Max_Image();
     imagesize.ImageSize(globalResultTracker);
   });
-  it("Product name must be unique", () => {
+  it("Validate the Product Name it's must be unique", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
     commonAction.itemVisibility(".vs-btn");
     const uniquename = new Name_Unique();
     uniquename.UniqueName(globalResultTracker);
   });
-  it("Product SKU must be unique", () => {
+  it("Validate the Product SKU it's must be unique", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
     commonAction.itemVisibility(".vs-btn");
     const uniquesku = new SKU_Unique();
     uniquesku.UniqueSKU(globalResultTracker);
   });
-  it("Duplicate Product", () => {
+  it("Validate the functionality of Product duplication", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
     commonAction.itemVisibility(".vs-btn");
     const copyproduct = new DuplicateProduct();
     copyproduct.ProductDuplicate(globalResultTracker);
   });
-  it("Edit Product", () => {
+  it("Validate the functionality of Edit Product", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(
@@ -84,7 +84,7 @@ describe("Automation test", () => {
     const editproduct = new EditProduct();
     editproduct.ProductEdit(globalResultTracker);
   });
-  it("Product view page component", () => {
+  it("Verify the presence and correctness of elements on the Product View page", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(
@@ -94,7 +94,7 @@ describe("Automation test", () => {
     const viewproduct = new ViewProduct();
     viewproduct.ProductView(globalResultTracker);
   });
-  it("Add new product from Run of Shows page", () => {
+  it("Validate the functionality of creating a new Product from RoS page", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(".vs-btn");
@@ -105,13 +105,13 @@ describe("Automation test", () => {
     const addrosproduct = new AddPorductRoS();
     addrosproduct.RosAddproduct(globalResultTracker);
   });
-  it("Product search functinality check", () => {
+  it("Validate the functionality of search Product", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
     commonAction.itemVisibility(".vs-btn");
     const searchproduct = new ProductSearch();
     searchproduct.productSearch(globalResultTracker);
   });
-  it("Product delete check", () => {
+  it("Validate the functionality of delete Product", () => {
     for (let i = 0; i < 2; i++) {
       cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
       commonAction.itemVisibility(".vs-btn");
@@ -119,7 +119,7 @@ describe("Automation test", () => {
       productdlt.deleteProduct(globalResultTracker);
     }
   });
-  it("Try to delete product that used in existing RoS", () => {
+  it("Validate the functionality of Product delete validation when it's attached with RoS", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
     commonAction.itemVisibility(".vs-btn");
     const deletevld = new DeleteValidation();

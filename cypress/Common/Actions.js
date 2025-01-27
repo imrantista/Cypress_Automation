@@ -138,31 +138,31 @@ class CommonActions {
       });
   }
   //vivsite asset create modal
-  visitAssetCreateModal(){
+  visitAssetCreateModal() {
     cy.fixture("LoginData.json")
-    .as("dataset")
-    .then((data) => {
-      const dataSet = data;
-      cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
-      this.itemVisibility(".vs-btn");
-      this.clickElement(".vs-btn");
-    });
+      .as("dataset")
+      .then((data) => {
+        const dataSet = data;
+        cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
+        this.itemVisibility(".vs-btn");
+        this.clickElement(".vs-btn");
+      });
   }
   //Visit Livecsope Add user modal
-  visiLivescopeAddAccount(){
+  visiLivescopeAddAccount() {
     cy.fixture("LoginData.json")
-    .as("dataset")
-    .then((data) => {
-      const dataSet = data;
-      cy.visit(`${dataSet.link}/livescope`);
-      this.itemVisibility(".vs-btn");
-      this.clickElement(".vs-btn");
-      cy.wait(4000)
-    });
+      .as("dataset")
+      .then((data) => {
+        const dataSet = data;
+        cy.visit(`${dataSet.link}/livescope`);
+        this.itemVisibility(".vs-btn");
+        this.clickElement(".vs-btn");
+        cy.wait(4000);
+      });
   }
   //Visit Run of Shows create page
-    visitRoSCraetepage(){
-      cy.fixture("LoginData.json")
+  visitRoSCraetepage() {
+    cy.fixture("LoginData.json")
       .as("dataset")
       .then((data) => {
         const dataSet = data;
@@ -173,7 +173,7 @@ class CommonActions {
       });
   }
   //visit livestream create modal
-  visitLivestreamCreateModal(){
+  visitLivestreamCreateModal() {
     cy.fixture("LoginData.json")
       .as("dataset")
       .then((data) => {
@@ -182,17 +182,66 @@ class CommonActions {
         this.itemVisibility(".vs-btn");
         this.clickElement(".vs-btn");
         this.itemVisibility(".flex-col > .text-\\[18px\\]");
-        this.clickElement(".cursor-pointer > label > .w-20")
-        cy.wait(4000)
-        this.clickElement(".gap-3 > .text-white")
-        this.itemVisibility(".vs-modal-header-content > .flex")
-
+        this.clickElement(".cursor-pointer > label > .w-20");
+        cy.wait(4000);
+        this.clickElement(".gap-3 > .text-white");
+        this.itemVisibility(".vs-modal-header-content > .flex");
+      });
+  }
+  //visit campaign create modal
+  visitCampaignCreateModal() {
+    cy.fixture("LoginData.json")
+      .as("dataset")
+      .then((data) => {
+        const dataSet = data;
+        cy.visit(`${dataSet.link}/live-campaigns?tab=Campaigns`);
+        this.itemVisibility(".vs-btn");
+        this.clickElement(".vs-btn");
+        this.clickElement(".cursor-pointer > label > .w-20");
+        cy.wait(2000);
+        this.clickElement(".gap-3 > .text-white");
+        cy.wait(2000);
+        this.clickElement(":nth-child(3) > .gap-x-4 > label > .w-20");
+        cy.wait(2000);
+        this.clickElement(
+          ".no-bg > .overflow-hidden > .vs-modal-body > .pt-7 > .gap-3 > .text-white"
+        );
+        this.itemVisibility(".overflow-hidden > .pt-7 > .gap-3 > .text-white");
+      });
+  }
+  //visitLivesteamPostDash
+  visitLivesteamPostDash() {
+    cy.fixture("LoginData.json")
+      .as("dataset")
+      .then((data) => {
+        const dataSet = data;
+        cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
+        this.itemVisibility(".vs-btn");
+        this.clickElement(".select-none > .relative");
+        cy.wait(2000);
+        this.selectAndType(
+          ":nth-child(1) > .css-b62m3t-container > .css-1avjah2-control",
+          `TikTok{enter}`
+        );
+        this.selectAndType(
+          ":nth-child(2) > .css-b62m3t-container > .css-1avjah2-control",
+          `Completed{enter}`
+        );
+        this.clickElement(".py-3");
+        cy.wait(4000);
+        this.clickElement(
+          ":nth-child(1) > :nth-child(10) > .flex > .bg-primary\\/\\[5\\%\\] > svg"
+        );
+        this.itemVisibility(".mb-4 > .items-center > .text-black");
+        cy.wait(4000);
       });
   }
   //wait for Toast
-  waitFOrtoast(timeout = 4000){
-    cy.get('.Toastify__toast.Toastify__toast--success, .Toastify__toast.Toastify__toast--error', { timeout})
-    .should('be.visible');
+  waitFOrtoast(timeout = 4000) {
+    cy.get(
+      ".Toastify__toast.Toastify__toast--success, .Toastify__toast.Toastify__toast--error",
+      { timeout }
+    ).should("be.visible");
   }
 }
 export default CommonActions;
