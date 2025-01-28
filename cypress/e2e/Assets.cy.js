@@ -5,13 +5,14 @@ import AddNewAsset from "../Assets/Create_Asset/Add_New_Asset";
 import RequiredField from "../Assets/Create_Asset/Required_Field";
 import AssetNameValidation from "../Assets/Validation/Asset_Name";
 import MaxImageSize from "../Assets/Validation/Max_Image_Size";
-import AddNewAssetInRoS from "../Assets/Create_Asset/Add_New_Asset_RoS";
 import ViewAsset from "../Assets/View_Asset";
 import AssetDelete from "../Assets/Asset_Delete";
 import AssetDeleteValidation from "../Assets/Validation/Asset_Delete_validation";
 import DuplicateAsset from "../Assets/Duplicate_Asset";
 import EditAsset from "../Assets/Edit_Asset";
 import AssetSearch from "../Assets/Asset_Search";
+import AssetCatergoy from "../Assets/Asset_Category";
+import AssetTag from "../Assets/Asset_Tag";
 describe("Automation test", () => {
   let dataSet = {};
   before(() => {
@@ -45,6 +46,16 @@ describe("Automation test", () => {
     const requiredfield = new RequiredField();
     requiredfield.requiredField(globalResultTracker);
   });
+  it("Validate the functionality of creating a new Asset category.", () => {
+    commonAction.visitAssetCreateModal();
+    const assetcategory = new AssetCatergoy();
+    assetcategory.assetCategory(globalResultTracker);
+  });
+  it("Validate the functionality of creating a new Asset tag.", () => {
+    commonAction.visitAssetCreateModal();
+    const assettag = new AssetTag();
+    assettag.assetTag(globalResultTracker);
+  });
   it("Validate the functionality of creating a new Asset.", () => {
     commonAction.visitAssetCreateModal();
     const addasset = new AddNewAsset();
@@ -60,16 +71,6 @@ describe("Automation test", () => {
     commonAction.visitAssetCreateModal();
     const maximagesize = new MaxImageSize();
     maximagesize.maxImageSize(globalResultTracker);
-  });
-  it("Validate the functionality of creating a new Asset from RoS page", () => {
-    cy.visit(`${dataSet.link}/run-of-shows`);
-    commonAction.itemVisibility(".vs-btn");
-    commonAction.clickElement(".vs-btn");
-    commonAction.clickElement(".mb-3 > :nth-child(1) > :nth-child(2)");
-    cy.wait(2000)
-    commonAction.clickElement(".mb-6 > .relative.flex", "Add new");
-    const addrosasset = new AddNewAssetInRoS();
-    addrosasset.addAssetRoS(globalResultTracker);
   });
   it("Validate the functionality of asset duplication", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
@@ -144,7 +145,7 @@ describe("Automation test", () => {
             }`
           );
         });
-        cy.task("sendEmail", { emailHtml: htmlString });
+        //cy.task("sendEmail", { emailHtml: htmlString });
       } else {
         cy.log("All checks passed!");
         let htmlString = `
@@ -153,7 +154,7 @@ describe("Automation test", () => {
           <p>Total Success: ${globalResultTracker.successCount}</p>
           <h3><span style="color:#228B22;">All checks passed!</span></h3>
         `;
-        cy.task("sendEmail", { emailHtml: htmlString });
+        //cy.task("sendEmail", { emailHtml: htmlString });
       }
     });
   });

@@ -13,6 +13,8 @@ import RoSEdit from "../Run_of_Shows/Edit_RoS_Product";
 import RoSProductEdit from "../Run_of_Shows/Edit_RoS_Product";
 import EditRoS from "../Run_of_Shows/Edit_RoS";
 import ModeratioPage from "../Run_of_Shows/Moderation_Page";
+import ProductAdd from "../Run_of_Shows/New_Product";
+import AssetAdd from "../Run_of_Shows/New_Asset";
 describe("Automation test", () => {
   let dataSet = {};
   before(() => {
@@ -109,6 +111,16 @@ describe("Automation test", () => {
     commonAction.itemVisibility(".my-auto");
     const editros = new EditRoS();
     editros.editRoS(globalResultTracker);
+  });
+  it("Validate the functionality of add new Product from RoS page", () => {
+    commonAction.visitRoSCraetepage();
+    const productadd = new ProductAdd();
+    productadd.productAdd(globalResultTracker);
+  });
+  it.only("Validate the functionality of add new Asset from RoS page", () => {
+    commonAction.visitRoSCraetepage();
+    const assetadd = new AssetAdd();
+    assetadd.assetAdd(globalResultTracker);
   });
   it("Verify the presence and correctness of the Moderation page componets", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);

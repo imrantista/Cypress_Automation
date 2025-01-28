@@ -34,7 +34,7 @@ describe("Automation test", () => {
     const listpage = new LivescopeListPage();
     listpage.listPage(globalResultTracker)
   });
-  it("Validate the functionality of Livescope add new account", () => {
+  it.only("Validate the functionality of Livescope add new account", () => {
     commonAction.visiLivescopeAddAccount();
     const addaccount = new NewAccount();
     addaccount.newAccount(globalResultTracker)

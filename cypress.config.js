@@ -1,10 +1,8 @@
 import { defineConfig } from "cypress";
 import nodemailer from "nodemailer";
-
 export default defineConfig({
   viewportHeight: 1080,
   viewportWidth: 1920,
-  
   e2e: {
     setupNodeEvents(on, config) {
       on("task", {
@@ -16,14 +14,12 @@ export default defineConfig({
               pass: "egkpmgdnbbgyxhjj",
             },
           });
-
           const mailOptions = {
             from: '"GM Imran" <mostafa.imran@vivasoftltd.com>',
-            to: "imran.cse04@gmail.com",
+            to: "imran.cse04@gmail.com, richard.crossman@stickler.live",
             subject: "Stickler Automation Test Result",
             html: emailHtml,
           };
-
           return transporter
             .sendMail(mailOptions)
             .then((info) => {

@@ -11,8 +11,10 @@ import Max_Image from "../Products/Validation/Max_Image_Size";
 import DuplicateProduct from "../Products/Duplicate_Product";
 import EditProduct from "../Products/Edit_Product";
 import ViewProduct from "../Products/View_Product";
-import AddPorductRoS from "../Products/Create_Product/Add_Product_in_RoS";
 import ProductSearch from "../Products/Product_Search";
+import NewBrand from "../Products/Create_Product/Add_New_Brand";
+import NewCategory from "../Products/Create_Product/Add_New_Category";
+import NewTag from "../Products/Create_Product/Add_New_Tag";
 describe("Automation test", () => {
   let dataSet = {};
   const commonAction = new CommonActions();
@@ -46,6 +48,21 @@ describe("Automation test", () => {
     commonAction.clickElement(".gap-3 > .bg-primary");
     const requidfield = new ModalComponentValidation();
     requidfield.RequiredFieldValidation(globalResultTracker);
+  });
+  it("Validate the functionality of creating a new Product Category.", () => {
+    commonAction.visitProductCreateModal();
+    const addcategory = new NewCategory();
+    addcategory.newCategory(globalResultTracker);
+  });
+  it("Validate the functionality of creating a new Product Brand.", () => {
+    commonAction.visitProductCreateModal();
+    const addbrand = new NewBrand();
+    addbrand.newBrand(globalResultTracker);
+  });
+  it("Validate the functionality of creating a new Product Tag.", () => {
+    commonAction.visitProductCreateModal();
+    const addtag = new NewTag();
+    addtag.newTag(globalResultTracker);
   });
   it("Validate the functionality of creating a new Product.", () => {
     commonAction.visitProductCreateModal();
@@ -93,17 +110,6 @@ describe("Automation test", () => {
     cy.wait(4000);
     const viewproduct = new ViewProduct();
     viewproduct.ProductView(globalResultTracker);
-  });
-  it("Validate the functionality of creating a new Product from RoS page", () => {
-    cy.visit(`${dataSet.link}/run-of-shows`);
-    commonAction.itemVisibility(".vs-btn");
-    commonAction.clickElement(".vs-btn");
-    commonAction.itemVisibility(".gap-2 > .vs-btn");
-    commonAction.clickElement(".gap-2 > .vs-btn");
-    commonAction.itemVisibility(".vs-modal-header-content");
-    commonAction.clickElement(".vs-modal-header-content", "Add");
-    const addrosproduct = new AddPorductRoS();
-    addrosproduct.RosAddproduct(globalResultTracker);
   });
   it("Validate the functionality of search Product", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
@@ -159,7 +165,7 @@ describe("Automation test", () => {
             }`
           );
         });
-        cy.task("sendEmail", { emailHtml: htmlString });
+        //cy.task("sendEmail", { emailHtml: htmlString });
       } else {
         cy.log("All checks passed!");
         let htmlString = `
@@ -168,7 +174,7 @@ describe("Automation test", () => {
           <p>Total Success: ${globalResultTracker.successCount}</p>
           <h3><span style="color:#228B22;">All checks passed!</span></h3>
         `;
-        cy.task("sendEmail", { emailHtml: htmlString });
+        //cy.task("sendEmail", { emailHtml: htmlString });
       }
     });
   });

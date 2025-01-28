@@ -28,7 +28,7 @@ describe("Automation test", () => {
   };
   const commonAction = new CommonActions();
   commonAction.LoginSession();
-  it.only("Verify the presence and correctness of the header elements in Livestreams list page", () => {
+  it("Verify the presence and correctness of the header elements in Livestreams list page", () => {
     cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
     commonAction.itemVisibility(".vs-btn");
     const listpage = new ListPage();
