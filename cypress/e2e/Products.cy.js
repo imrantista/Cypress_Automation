@@ -15,7 +15,8 @@ import ProductSearch from "../Products/Product_Search";
 import NewBrand from "../Products/Create_Product/Add_New_Brand";
 import NewCategory from "../Products/Create_Product/Add_New_Category";
 import NewTag from "../Products/Create_Product/Add_New_Tag";
-describe("Automation test", () => {
+import OfferPrice from "../Products/Validation/Offer_Price";
+describe("Automation test for product page", () => {
   let dataSet = {};
   const commonAction = new CommonActions();
   let globalResultTracker = {
@@ -85,6 +86,15 @@ describe("Automation test", () => {
     commonAction.itemVisibility(".vs-btn");
     const uniquesku = new SKU_Unique();
     uniquesku.UniqueSKU(globalResultTracker);
+  });
+  it("Validate the functionality of Offer price", () => {
+    cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
+    commonAction.itemVisibility(".vs-btn");
+    commonAction.clickElement(
+      ":nth-child(1) > :nth-child(11) > .flex > .text-primaryYellow > svg"
+    );
+    const offerprice = new OfferPrice();
+    offerprice.offerPrice(globalResultTracker);
   });
   it("Validate the functionality of Product duplication", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Products`);
@@ -165,7 +175,7 @@ describe("Automation test", () => {
             }`
           );
         });
-        //cy.task("sendEmail", { emailHtml: htmlString });
+        cy.task("sendEmail", { emailHtml: htmlString });
       } else {
         cy.log("All checks passed!");
         let htmlString = `
@@ -174,7 +184,7 @@ describe("Automation test", () => {
           <p>Total Success: ${globalResultTracker.successCount}</p>
           <h3><span style="color:#228B22;">All checks passed!</span></h3>
         `;
-        //cy.task("sendEmail", { emailHtml: htmlString });
+        cy.task("sendEmail", { emailHtml: htmlString });
       }
     });
   });

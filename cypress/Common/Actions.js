@@ -32,7 +32,7 @@ class CommonActions {
   }
   //waiting for item visible
   itemVisibility(selector) {
-    cy.get(selector, { timeout: 10000 }).should("be.visible");
+    cy.get(selector, { timeout: 20000 }).should("be.visible");
   }
   //Element check function
   checkElementVisibility(

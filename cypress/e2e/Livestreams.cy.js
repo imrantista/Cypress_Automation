@@ -11,7 +11,7 @@ import ListPage from "../Live_Campaigns/Livestreams/List_Page";
 import NameUnique from "../Live_Campaigns/Livestreams/Validation/Name_Validation";
 import FieldValidation from "../Live_Campaigns/Livestreams/Validation/Required_Fields";
 import ViewLivestream from "../Live_Campaigns/Livestreams/View_Livestream";
-describe("Automation test", () => {
+describe("Automation test for Livestream page", () => {
   let dataSet = {};
   before(() => {
     cy.fixture("LoginData.json")
@@ -129,7 +129,7 @@ describe("Automation test", () => {
             }`
           );
         });
-        //cy.task("sendEmail", { emailHtml: htmlString });
+        cy.task("sendEmail", { emailHtml: htmlString });
       } else {
         cy.log("All checks passed!");
         let htmlString = `
@@ -138,7 +138,7 @@ describe("Automation test", () => {
           <p>Total Success: ${globalResultTracker.successCount}</p>
           <h3><span style="color:#228B22;">All checks passed!</span></h3>
         `;
-        //cy.task("sendEmail", { emailHtml: htmlString });
+        cy.task("sendEmail", { emailHtml: htmlString });
       }
     });
   });

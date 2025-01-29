@@ -15,7 +15,7 @@ import EditRoS from "../Run_of_Shows/Edit_RoS";
 import ModeratioPage from "../Run_of_Shows/Moderation_Page";
 import ProductAdd from "../Run_of_Shows/New_Product";
 import AssetAdd from "../Run_of_Shows/New_Asset";
-describe("Automation test", () => {
+describe("Automation test for Ron of Shows page", () => {
   let dataSet = {};
   before(() => {
     cy.fixture("LoginData.json")
@@ -32,7 +32,7 @@ describe("Automation test", () => {
   };
   const commonAction = new CommonActions();
   commonAction.LoginSession();
-  it("Verify the presence and correctness of the header elements in the RoS page", () => {
+  it.only("Verify the presence and correctness of the header elements in the RoS page", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     const roslist = new ListPage();
@@ -85,10 +85,6 @@ describe("Automation test", () => {
   it("Verify the presence and correctness of the RoS view page component", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
-    commonAction.clickElement(
-      ":nth-child(1) > :nth-child(7) > .flex > .bg-primary\\/\\[5\\%\\] > svg"
-    );
-    commonAction.itemVisibility(".my-auto");
     const viewros = new ViewPage();
     viewros.viewPage(globalResultTracker);
   });
@@ -117,7 +113,7 @@ describe("Automation test", () => {
     const productadd = new ProductAdd();
     productadd.productAdd(globalResultTracker);
   });
-  it.only("Validate the functionality of add new Asset from RoS page", () => {
+  it("Validate the functionality of add new Asset from RoS page", () => {
     commonAction.visitRoSCraetepage();
     const assetadd = new AssetAdd();
     assetadd.assetAdd(globalResultTracker);

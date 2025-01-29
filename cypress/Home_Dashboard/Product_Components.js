@@ -6,6 +6,7 @@ class ProductComponent{
             const scrollHeight = win.document.body.scrollHeight;
             const scrollPosition = scrollHeight / 2;
             win.scrollTo(0, scrollPosition);
+            commonAction.clickElement(".bg-white > .py-5")
             const elements =[
                 {
                     selector: ".gap-5",

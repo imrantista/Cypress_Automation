@@ -1,35 +1,18 @@
-import CommonActions from "../Common/Actions";
-import DashElements from "../Live_Campaigns/Post_Dashboard/Postdash";
-import Transcription from "../Live_Campaigns/Post_Dashboard/Transcription";
-describe("Automation test for Livestream post Dashboard", () => {
-  let dataSet = {};
-  before(() => {
-    cy.fixture("LoginData.json")
-      .as("dataset")
-      .then(function (data) {
-        dataSet = data;
-      });
-  });
-  let globalResultTracker = {
+//import "./Login.cy";
+//import "./Products.cy";
+import "./Assets.cy";
+import "./RoS.cy";
+//import "./Users.cy";
+//import "./Livescope.cy";
+//import "./Livestreams.cy";
+//import "./Post_Dashboard.cy";
+//import "./Home_Dashboard.cy"
+let globalResultTracker = {
     successCount: 0,
     errorCount: 0,
     errorMessages: [],
     stepToReproduces: [],
   };
-  const commonAction = new CommonActions();
-  commonAction.LoginSession();
-  it("Verify the presence and correctness of the elements in Livestreams post dashboard page", () => {
-    cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
-    commonAction.itemVisibility(".vs-btn");
-    const dashelement = new DashElements();
-    dashelement.dashElements(globalResultTracker);
-  });
-  it("Validate the functionality Livestream transcriptions", () => {
-    cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
-    commonAction.itemVisibility(".vs-btn");
-    const transcriptions = new Transcription();
-    transcriptions.transcription(globalResultTracker);
-  });
   after(() => {
     cy.then(() => {
       let totalCases =
@@ -49,7 +32,7 @@ describe("Automation test for Livestream post Dashboard", () => {
           )
           .join("<br>");
         let htmlString = `
-          <h3>Module Name: Livestream Post Dashboard </h3>
+          <h3>Automation test result for Stickler</h3>
           <p>Total Number of Cases: ${totalCases}</p>
           <p>Total Success: ${globalResultTracker.successCount}</p>
           <p>Total Errors: ${globalResultTracker.errorCount}</p>
@@ -68,7 +51,7 @@ describe("Automation test for Livestream post Dashboard", () => {
       } else {
         cy.log("All checks passed!");
         let htmlString = `
-          <h3>Module Name: Livestream Post Dashboard</h3>
+          <h3>Automation test result for Stickler</h3>
           <p>Total Number of Cases: ${totalCases}</p>
           <p>Total Success: ${globalResultTracker.successCount}</p>
           <h3><span style="color:#228B22;">All checks passed!</span></h3>
@@ -77,4 +60,3 @@ describe("Automation test for Livestream post Dashboard", () => {
       }
     });
   });
-});

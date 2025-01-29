@@ -2,10 +2,17 @@ import CommonActions from "../Common/Actions";
 class ViewPage {
   viewPage(resultTracker) {
     const commonAction = new CommonActions();
-    cy.wait(2000);
+    commonAction.clearElement(".py-2")
+    commonAction.selectAndType(".py-2", "New Livestream 120" )
+    cy.wait(2000)
+    commonAction.clickElement(
+      ":nth-child(1) > :nth-child(7) > .flex > .bg-primary\\/\\[5\\%\\] > svg"
+    );
+    commonAction.itemVisibility(".my-auto");
     commonAction.clickElement(
       ":nth-child(1) > .px-4 > :nth-child(1) > .border > .w-1\\/12 > .px-2\\.5"
     );
+    cy.wait(2000)
     const elements = [
       {
         selector: ".mb-6",

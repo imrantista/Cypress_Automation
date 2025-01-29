@@ -5,7 +5,6 @@ import AddNewAsset from "../Assets/Create_Asset/Add_New_Asset";
 import RequiredField from "../Assets/Create_Asset/Required_Field";
 import AssetNameValidation from "../Assets/Validation/Asset_Name";
 import MaxImageSize from "../Assets/Validation/Max_Image_Size";
-import ViewAsset from "../Assets/View_Asset";
 import AssetDelete from "../Assets/Asset_Delete";
 import AssetDeleteValidation from "../Assets/Validation/Asset_Delete_validation";
 import DuplicateAsset from "../Assets/Duplicate_Asset";
@@ -13,7 +12,8 @@ import EditAsset from "../Assets/Edit_Asset";
 import AssetSearch from "../Assets/Asset_Search";
 import AssetCatergoy from "../Assets/Asset_Category";
 import AssetTag from "../Assets/Asset_Tag";
-describe("Automation test", () => {
+import AssetView from "../Assets/Asset_View";
+describe("Automation test for Assets page", () => {
   let dataSet = {};
   before(() => {
     cy.fixture("LoginData.json")
@@ -30,7 +30,7 @@ describe("Automation test", () => {
   };
   const commonAction = new CommonActions();
   commonAction.LoginSession();
-  it("Verify the presence and correctness of the header elements in the Asset List page.", () => {
+  it.only("Verify the presence and correctness of the header elements in the Asset List page.", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
     const assetlist = new AssetListPage();
@@ -87,9 +87,9 @@ describe("Automation test", () => {
   it("Verify the presence and correctness of elements on the Asset View page", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
-    commonAction.clickElement(":nth-child(1) > :nth-child(8) > .flex > .bg-primary\\/\\[5\\%\\] > svg");
-    const viewasset = new ViewAsset()
-    viewasset.assetView(globalResultTracker);
+    commonAction.clickElement(":nth-child(1) > :nth-child(7) > .flex > .bg-primary\\/\\[5\\%\\] > svg");
+    const assetview = new AssetView()
+    assetview.assetView(globalResultTracker);
   });
   it("Validate the functionality of asset search", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);

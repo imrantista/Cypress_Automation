@@ -3,7 +3,7 @@ class DuplicateAsset {
   
   AssettDuplicate(resultTracker) {
     const commonAction = new CommonActions()
-    commonAction.clickElement(":nth-child(1) > :nth-child(8) > .flex > .bg-\\[\\#1FC7A9\\]\\/\\[10\\%\\]")
+    commonAction.clickElement(":nth-child(1) > :nth-child(7) > .flex > .bg-\\[\\#1FC7A9\\]\\/\\[10\\%\\]")
     cy.wait(4000);
     commonAction.checkToast(
       "Asset duplicated successfully!",

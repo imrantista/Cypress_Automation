@@ -18,11 +18,6 @@ class AssetListPage {
         description: "Script found in Asset List page header",
       },
       {
-        selector: ".min-w-\\[120px\\] > .relative",
-        text: "Notes",
-        description: "Notes found in Asset List page header",
-      },
-      {
         selector: ".min-w-\\[125px\\] > .relative",
         text: "Duration",
         description: "Duration found in Asset List page header",
@@ -39,8 +34,8 @@ class AssetListPage {
       },
       {
         selector: ".relative.flex > :nth-child(1) > .mb-3",
-        text: "Catergory",
-        description: "Catergory found in Asset List page header",
+        text: "Category",
+        description: "Category found in Asset List page header",
       }
     ];
     const commonAction = new CommonActions();
@@ -49,8 +44,8 @@ class AssetListPage {
         element.selector,
         element.text,
         element.description,
-        `Error: ${element.text} not found in Asset create modal.`,
-        "Assets->Asset list page->click on Add new button->Asset create modal",
+        `Error: ${element.text} not found in Asset List page header`,
+        "Assets->Asset list page->check header",
         resultTracker
       );
     });

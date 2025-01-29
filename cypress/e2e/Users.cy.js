@@ -16,7 +16,7 @@ import SearchUsers from "../Users/Users_Page/Search_Users";
 import UserActiveDeactive from "../Users/Users_Page/User_Active_Deactive";
 import RoleChange from "../Users/Users_Page/Role_Change";
 import DeactivatedUserLogin from "../Users/Users_Page/Deactive_User_Login";
-describe("Automation test", () => {
+describe("Automation test for Users page", () => {
   let dataSet = {};
   before(() => {
     cy.fixture("LoginData.json")
@@ -192,7 +192,7 @@ describe("Automation test", () => {
             }`
           );
         });
-        //cy.task("sendEmail", { emailHtml: htmlString });
+        cy.task("sendEmail", { emailHtml: htmlString });
       } else {
         cy.log("All checks passed!");
         let htmlString = `
@@ -201,7 +201,7 @@ describe("Automation test", () => {
           <p>Total Success: ${globalResultTracker.successCount}</p>
           <h3><span style="color:#228B22;">All checks passed!</span></h3>
         `;
-        //cy.task("sendEmail", { emailHtml: htmlString });
+        cy.task("sendEmail", { emailHtml: htmlString });
       }
     });
   });

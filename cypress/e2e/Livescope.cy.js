@@ -11,7 +11,7 @@ import AccountTracking from "../Livescope/Add_New_Account/Account_Tracking";
 import PageComponetLivescopeDetailsPage from "../Livescope/Livescope_Details_Page";
 import PostDashComponent from "../Livescope/Post_Dashboard";
 import LivescopeTranscription from "../Livescope/Transcription";
-describe("Automation test", () => {
+describe("Automation test for Livescope page", () => {
   let dataSet = {};
   before(() => {
     cy.fixture("LoginData.json")
@@ -34,7 +34,7 @@ describe("Automation test", () => {
     const listpage = new LivescopeListPage();
     listpage.listPage(globalResultTracker)
   });
-  it.only("Validate the functionality of Livescope add new account", () => {
+  it("Validate the functionality of Livescope add new account", () => {
     commonAction.visiLivescopeAddAccount();
     const addaccount = new NewAccount();
     addaccount.newAccount(globalResultTracker)

@@ -5,7 +5,7 @@ class EditAsset {
     const randomString = Math.random().toString(9);
     const assetName = `Edit-${randomString}-99`;
     commonAction.clickElement(
-      ":nth-child(1) > :nth-child(8) > .flex > .text-primaryYellow > svg"
+      ":nth-child(1) > :nth-child(7) > .flex > .text-primaryYellow > svg"
     );
     commonAction.itemVisibility(".gap-3 > .text-white");
     commonAction.clearElement("#name");

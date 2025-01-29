@@ -3,7 +3,7 @@ class AssetDelete {
   deleteAsset(resultTracker) {
     const commonAction = new CommonActions();
     commonAction.clickElement(
-      ":nth-child(1) > :nth-child(8) > .flex > .text-primaryRed>svg"
+      ":nth-child(1) > :nth-child(7) > .flex > .text-primaryRed>svg"
     );
     cy.wait(4000)
     cy.get(".gap-3 > .text-white")

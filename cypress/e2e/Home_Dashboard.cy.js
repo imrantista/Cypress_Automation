@@ -3,9 +3,12 @@ import AddLivescopeAccount from "../Home_Dashboard/Add_Livescope_Account";
 import AddLivestream from "../Home_Dashboard/Add_Livestream";
 import AddProduct from "../Home_Dashboard/Add_Product";
 import CamapignElements from "../Home_Dashboard/Campaign_Components";
+import LivescopeComponent from "../Home_Dashboard/Livescope_Component";
 import ProductComponent from "../Home_Dashboard/Product_Components";
 import SideMenuEelemnt from "../Home_Dashboard/Side_Menu";
-describe("Automation test", () => {
+import LivescopeView from "../Home_Dashboard/View_Livescope";
+import ProductView from "../Home_Dashboard/View_Product";
+describe("Automation test for Home Dashboard", () => {
   let dataSet = {};
   before(() => {
     cy.fixture("LoginData.json")
@@ -34,11 +37,17 @@ describe("Automation test", () => {
     const dashboardelement = new CamapignElements();
     dashboardelement.dashboardElements(globalResultTracker);
   });
-  it.only("Verify the presence and correctness of elements on product in Home dashboard", () => {
+  it("Verify the presence and correctness of elements on product section in Home dashboard", () => {
     cy.visit(`${dataSet.link}/dashboard`);
     commonAction.itemVisibility(".vs-btn");
     const productelements = new ProductComponent();
     productelements.productComponent(globalResultTracker);
+  });
+  it("Verify the presence and correctness of elements on livescope section in Home dashboard", () => {
+    cy.visit(`${dataSet.link}/dashboard`);
+    commonAction.itemVisibility(".vs-btn");
+    const livescopeelements = new LivescopeComponent();
+    livescopeelements.livescopeComponent(globalResultTracker);
   });
   it("Verify the functionality of create new product from home dashboard", () => {
     cy.visit(`${dataSet.link}/dashboard`);
@@ -52,11 +61,23 @@ describe("Automation test", () => {
     const addlivestream = new AddLivestream();
     addlivestream.addLivestream(globalResultTracker);
   });
-  it.skip("Verify the functionality of add Livescope account from home dashboard", () => {
+  it("Verify the functionality of add Livescope account from home dashboard", () => {
     cy.visit(`${dataSet.link}/dashboard`);
     commonAction.itemVisibility(".vs-btn");
     const addaccount = new AddLivescopeAccount();
     addaccount.addLivescopeaccount(globalResultTracker);
+  });
+  it("Verify the functionality of view Livescope from home dashboard", () => {
+    cy.visit(`${dataSet.link}/dashboard`);
+    commonAction.itemVisibility(".vs-btn");
+    const viewlivescope = new LivescopeView();
+    viewlivescope.livescopeView(globalResultTracker);
+  });
+  it("Verify the functionality of view Product from home dashboard", () => {
+    cy.visit(`${dataSet.link}/dashboard`);
+    commonAction.itemVisibility(".vs-btn");
+    const viewproduct = new ProductView();
+    viewproduct.productView(globalResultTracker);
   });
   after(() => {
     cy.then(() => {
@@ -92,7 +113,7 @@ describe("Automation test", () => {
             }`
           );
         });
-        //cy.task("sendEmail", { emailHtml: htmlString });
+        cy.task("sendEmail", { emailHtml: htmlString });
       } else {
         cy.log("All checks passed!");
         let htmlString = `
@@ -101,7 +122,7 @@ describe("Automation test", () => {
           <p>Total Success: ${globalResultTracker.successCount}</p>
           <h3><span style="color:#228B22;">All checks passed!</span></h3>
         `;
-        //cy.task("sendEmail", { emailHtml: htmlString });
+        cy.task("sendEmail", { emailHtml: htmlString });
       }
     });
   });

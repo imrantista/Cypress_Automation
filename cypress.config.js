@@ -16,7 +16,7 @@ export default defineConfig({
           });
           const mailOptions = {
             from: '"GM Imran" <mostafa.imran@vivasoftltd.com>',
-            to: "imran.cse04@gmail.com, richard.crossman@stickler.live",
+            to: "imran.cse04@gmail.com",
             subject: "Stickler Automation Test Result",
             html: emailHtml,
           };
