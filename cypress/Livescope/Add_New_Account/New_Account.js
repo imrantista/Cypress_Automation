@@ -3,11 +3,9 @@ class NewAccount {
   newAccount(resultTracker) {
     const commonAction = new CommonActions();
     const items = [
-      "theoriginote",
-      "uht.tee",
-      "garnierthailand",
-      "dearmebeauty",
-      "redoxonid",
+      "imu",
+      "leo",
+      "king",
     ];
     cy.get("body").then(($body) => {
       const randomIndex = Math.floor(Math.random() * items.length);

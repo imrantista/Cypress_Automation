@@ -1,4 +1,3 @@
-import Loginpage from "../Login_Auth/Loginpage";
 class CommonActions {
   //Login_session
   LoginSession() {
@@ -8,10 +7,28 @@ class CommonActions {
         .then((dataSet) => {
           cy.session("user-session", () => {
             cy.visit(`${dataSet.link}/auth/login`);
-            const login = new Loginpage();
-            login.Newlogin(dataSet.email, dataSet.password);
+            cy.visit(`${dataSet.link}/auth/login`);
+            cy.get('input[name="username"]').clear().type(dataSet.useremail);
+            cy.get('input[name="password"]').clear().type(dataSet.password);
+            cy.get('button[type="submit"]').click();
+            cy.get('[title="Go to Live Campaigns page"]').should("be.visible");
           });
         });
+    });
+  }
+  //Host_Login_Session
+  HostLoginSession() {
+    beforeEach(function () {
+      cy.fixture("LoginData.json").then((dataSet) => {
+        cy.session("host-user-session", () => {
+          cy.visit(`${dataSet.link}/auth/login`);
+          cy.get('input[name="username"]').clear().type(dataSet.hostuser);
+          cy.get('input[name="password"]').clear().type(dataSet.password);
+          cy.get('button[type="submit"]').click();
+          cy.get('[title="Go to Live Campaigns page"]').should("be.visible");
+          cy.wait(2000);
+        });
+      });
     });
   }
   //Click function

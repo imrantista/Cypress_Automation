@@ -137,7 +137,7 @@ describe("Automation test for Livescope page", () => {
             }`
           );
         });
-        cy.task("sendEmail", { emailHtml: htmlString });
+        //cy.task("sendEmail", { emailHtml: htmlString });
       } else {
         cy.log("All checks passed!");
         let htmlString = `
@@ -146,7 +146,7 @@ describe("Automation test for Livescope page", () => {
           <p>Total Success: ${globalResultTracker.successCount}</p>
           <h3><span style="color:#228B22;">All checks passed!</span></h3>
         `;
-        cy.task("sendEmail", { emailHtml: htmlString });
+       // cy.task("sendEmail", { emailHtml: htmlString });
       }
     });
   });
