@@ -31,7 +31,7 @@ describe("Automation test for Ron of Shows page", () => {
   };
   const commonAction = new CommonActions();
   commonAction.LoginSession();
-  it.only("Verify the presence and correctness of the header elements in the RoS page", () => {
+  it("Verify the presence and correctness of the header elements in the RoS page", () => {
     cy.visit(`${dataSet.link}/run-of-shows`);
     commonAction.itemVisibility(".vs-btn");
     const roslist = new ListPage();

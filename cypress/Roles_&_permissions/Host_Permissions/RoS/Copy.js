@@ -2,11 +2,11 @@ class RoSCopyPermissions {
   copyPermissions(resultTracker, dataSet) {
     cy.visit(`${dataSet.link}/run-of-shows`);
     cy.wait(2000);
-    const addButtonSelector =
+    const copyButtonSelector =
       ":nth-child(1) > :nth-child(7) > .flex > .bg-\\[\\#1FC7A9\\]\\/\\[10\\%\\]";
     cy.get("body").then(($body) => {
-      if ($body.find(addButtonSelector).length > 0) {
-        cy.get(addButtonSelector)
+      if ($body.find(copyButtonSelector).length > 0) {
+        cy.get(copyButtonSelector)
           .should("be.visible")
           .then(($btn) => {
             if ($btn.length > 0) {

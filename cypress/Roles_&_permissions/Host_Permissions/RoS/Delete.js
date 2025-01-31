@@ -2,11 +2,11 @@ class RoSDeletePermissions {
   deletePermissions(resultTracker, dataSet) {
     cy.visit(`${dataSet.link}/run-of-shows`);
     cy.wait(2000);
-    const addButtonSelector =
+    const deleteButtonSelector =
       ":nth-child(1) > :nth-child(7) > .flex > .text-primaryRed";
     cy.get("body").then(($body) => {
-      if ($body.find(addButtonSelector).length > 0) {
-        cy.get(addButtonSelector)
+      if ($body.find(deleteButtonSelector).length > 0) {
+        cy.get(deleteButtonSelector)
           .should("be.visible")
           .then(($btn) => {
             if ($btn.length > 0) {

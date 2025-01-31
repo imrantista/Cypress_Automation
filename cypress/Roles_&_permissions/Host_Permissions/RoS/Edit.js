@@ -2,11 +2,11 @@ class RoSEditPermissions {
   editPermissions(resultTracker, dataSet) {
     cy.visit(`${dataSet.link}/run-of-shows`);
     cy.wait(2000);
-    const addButtonSelector =
+    const editButtonSelector =
       ":nth-child(1) > :nth-child(7) > .flex > .text-primaryYellow";
     cy.get("body").then(($body) => {
-      if ($body.find(addButtonSelector).length > 0) {
-        cy.get(addButtonSelector)
+      if ($body.find(editButtonSelector).length > 0) {
+        cy.get(editButtonSelector)
           .should("be.visible")
           .then(($btn) => {
             if ($btn.length > 0) {

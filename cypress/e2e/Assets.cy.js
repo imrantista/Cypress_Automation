@@ -30,7 +30,7 @@ describe("Automation test for Assets page", () => {
   };
   const commonAction = new CommonActions();
   commonAction.LoginSession();
-  it.only("Verify the presence and correctness of the header elements in the Asset List page.", () => {
+  it("Verify the presence and correctness of the header elements in the Asset List page.", () => {
     cy.visit(`${dataSet.link}/products-and-assets?tab=Assets`);
     commonAction.itemVisibility(".vs-btn");
     const assetlist = new AssetListPage();

@@ -8,6 +8,17 @@ import RoSAddPermissions from "../Roles_&_permissions/Host_Permissions/Livescope
 import RoSEditPermissions from "../Roles_&_permissions/Host_Permissions/RoS/Edit";
 import RoSCopyPermissions from "../Roles_&_permissions/Host_Permissions/RoS/Copy";
 import RoSDeletePermissions from "../Roles_&_permissions/Host_Permissions/RoS/Delete";
+import RoSCreatePagePermissions from "../Roles_&_permissions/Host_Permissions/RoS/RoS_Create_Page";
+import RoSUpadtePermissions from "../Roles_&_permissions/Host_Permissions/RoS/Update_RoS";
+import ProductAddPermissions from "../Roles_&_permissions/Host_Permissions/Products/Add";
+import ProductEditPermissions from "../Roles_&_permissions/Host_Permissions/Products/Edit";
+import ProductCopyPermissions from "../Roles_&_permissions/Host_Permissions/Products/Copy";
+import ProductDeletePermissions from "../Roles_&_permissions/Host_Permissions/Products/Delete";
+import AiPermissions from "../Roles_&_permissions/Host_Permissions/Products/Ai_Scripts";
+import AssetAddPermissions from "../Roles_&_permissions/Host_Permissions/Assets/Add";
+import AssetEditPermissions from "../Roles_&_permissions/Host_Permissions/Assets/Edit";
+import AssetCopyPermissions from "../Roles_&_permissions/Host_Permissions/Assets/Copy";
+import AssetDeletePermissions from "../Roles_&_permissions/Host_Permissions/Assets/Delete";
 describe("Automation test for Auth", () => {
   let dataSet = {};
   before(() => {
@@ -50,6 +61,51 @@ describe("Automation test for Auth", () => {
     const exportpermission = new ExportDataPermissions();
     exportpermission.exportPermissions(globalResultTracker, dataSet);
   });
+  it("check host permissions for Add product", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const addpermission = new ProductAddPermissions();
+    addpermission.addPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Edit product", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const editpermission = new ProductEditPermissions();
+    editpermission.editPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Copy product", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const copypermission = new ProductCopyPermissions();
+    copypermission.copyPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for delete product", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const deletepermission = new ProductDeletePermissions();
+    deletepermission.deletePermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Ai script generate", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const scriptpermission = new AiPermissions();
+    scriptpermission.aiPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Add new Asset", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const addpermission = new AssetAddPermissions();
+    addpermission.addPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Edit Asset", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const editpermission = new AssetEditPermissions();
+    editpermission.editPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Copy Asset", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const copypermission = new AssetCopyPermissions();
+    copypermission.copyPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for delete Asset", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const deletepermission = new AssetDeletePermissions();
+    deletepermission.deletePermissions(globalResultTracker, dataSet);
+  });
   it("check host permissions for add new RoS", () => {
     cy.visit(`${dataSet.link}/auth/login`);
     const addpermission = new RoSAddPermissions();
@@ -64,6 +120,21 @@ describe("Automation test for Auth", () => {
     cy.visit(`${dataSet.link}/auth/login`);
     const copypermission = new RoSCopyPermissions();
     copypermission.copyPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for delete RoS", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const deletepermission = new RoSDeletePermissions();
+    deletepermission.deletePermissions(globalResultTracker, dataSet);
+  });
+  it.skip("check host permissions for visit RoS create page using URL", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const createpagepermission = new RoSCreatePagePermissions();
+    createpagepermission.createPagePermissions(globalResultTracker, dataSet);
+  });
+  it.skip("check host permissions for visit RoS Edit page using URL", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const editpagepermission = new RoSUpadtePermissions();
+    editpagepermission.updatePermissions(globalResultTracker, dataSet);
   });
   it("check host permissions for delete RoS", () => {
     cy.visit(`${dataSet.link}/auth/login`);
