@@ -19,6 +19,15 @@ import AssetAddPermissions from "../Roles_&_permissions/Host_Permissions/Assets/
 import AssetEditPermissions from "../Roles_&_permissions/Host_Permissions/Assets/Edit";
 import AssetCopyPermissions from "../Roles_&_permissions/Host_Permissions/Assets/Copy";
 import AssetDeletePermissions from "../Roles_&_permissions/Host_Permissions/Assets/Delete";
+import LivestreamAddPermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Livestreams/Add";
+import LivestreamEditPermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Livestreams/Edit";
+import LivestreamCopyPermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Livestreams/Copy";
+import LivestreamDeletePermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Livestreams/Delete";
+import LivestreamExportDataPermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Livestreams/Data_Export";
+import CampaignAddPermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Camapigns/Add";
+import CampaignEditPermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Camapigns/Edit";
+import CampaignExportDataPermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Camapigns/Export";
+import CampaignDeletePermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Camapigns/Delete";
 describe("Automation test for Auth", () => {
   let dataSet = {};
   before(() => {
@@ -140,6 +149,51 @@ describe("Automation test for Auth", () => {
     cy.visit(`${dataSet.link}/auth/login`);
     const deletepermission = new RoSDeletePermissions();
     deletepermission.deletePermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Add new Livestream", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const addpermission = new LivestreamAddPermissions();
+    addpermission.addPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for edit Livestream", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const editpermission = new LivestreamEditPermissions();
+    editpermission.editPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for copy Livestream", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const copypermission = new LivestreamCopyPermissions();
+    copypermission.copyPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for delete Livestream", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const deletepermission = new LivestreamDeletePermissions();
+    deletepermission.deletePermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for export Livestream data", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const exportpermission = new LivestreamExportDataPermissions();
+    exportpermission.exportPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Add new Campaign", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const addpermission = new CampaignAddPermissions();
+    addpermission.addPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for edit Campaign", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const editpermission = new CampaignEditPermissions();
+    editpermission.editPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for delete Campaign", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const deletepermission = new CampaignDeletePermissions();
+    deletepermission.deletePermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for export Campaign data", () => {
+    cy.visit(`${dataSet.link}/auth/login`);
+    const exportpermission = new CampaignExportDataPermissions();
+    exportpermission.exportPermissions(globalResultTracker, dataSet);
   });
   after(() => {
     commonAction.logResults(globalResultTracker, "Roles & Permissions");
