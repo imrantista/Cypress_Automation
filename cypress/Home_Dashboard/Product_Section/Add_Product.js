@@ -1,5 +1,5 @@
-import CommonActions from "../Common/Actions";
-import AddNewProduct from "../Products/Create_Product/Add_New_Product";
+import CommonActions from "../../Common/Actions";
+import AddNewProduct from "../../Products/Create_Product/Add_New_Product";
 class AddProduct{
     addProduct(resultTracker){
         const commonAction = new CommonActions();

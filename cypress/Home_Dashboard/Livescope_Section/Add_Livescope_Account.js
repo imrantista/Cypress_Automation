@@ -1,4 +1,4 @@
-import CommonActions from "../Common/Actions";
+import CommonActions from "../../Common/Actions";
 class AddLivescopeAccount {
   addLivescopeaccount(resultTracker) {
     const commonAction = new CommonActions();

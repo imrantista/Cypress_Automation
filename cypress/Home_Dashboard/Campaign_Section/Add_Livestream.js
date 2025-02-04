@@ -1,5 +1,5 @@
-import CommonActions from "../Common/Actions";
-import CreateNew from "../Live_Campaigns/Livestreams/Create/New_Livestream";
+import CommonActions from "../../Common/Actions";
+import CreateNew from "../../Live_Campaigns/Livestreams/Create/New_Livestream";
 class AddLivestream{
     addLivestream(resultTracker){
         const commonAction = new CommonActions()

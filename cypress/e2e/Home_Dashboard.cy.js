@@ -1,13 +1,13 @@
 import CommonActions from "../Common/Actions";
-import AddLivescopeAccount from "../Home_Dashboard/Add_Livescope_Account";
-import AddLivestream from "../Home_Dashboard/Add_Livestream";
-import AddProduct from "../Home_Dashboard/Add_Product";
-import CamapignElements from "../Home_Dashboard/Campaign_Components";
-import LivescopeComponent from "../Home_Dashboard/Livescope_Component";
-import ProductComponent from "../Home_Dashboard/Product_Components";
+import AddLivescopeAccount from "../Home_Dashboard/Livescope_Section/Add_Livescope_Account";
+import AddLivestream from "../Home_Dashboard/Campaign_Section/Add_Livestream";
+import AddProduct from "../Home_Dashboard/Product_Section/Add_Product";
+import CamapignElements from "../Home_Dashboard/Campaign_Section/Campaign_Components";
+import LivescopeComponent from "../Home_Dashboard/Livescope_Section/Livescope_Component";
+import ProductComponent from "../Home_Dashboard/Product_Section/Product_Components";
 import SideMenuEelemnt from "../Home_Dashboard/Side_Menu";
-import LivescopeView from "../Home_Dashboard/View_Livescope";
-import ProductView from "../Home_Dashboard/View_Product";
+import LivescopeView from "../Home_Dashboard/Livescope_Section/View_Livescope";
+import ProductView from "../Home_Dashboard/Product_Section/View_Product";
 describe("Automation test for Home Dashboard", () => {
   let dataSet = {};
   before(() => {

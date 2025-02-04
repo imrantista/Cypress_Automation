@@ -28,6 +28,9 @@ import CampaignAddPermissions from "../Roles_&_permissions/Host_Permissions/Live
 import CampaignEditPermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Camapigns/Edit";
 import CampaignExportDataPermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Camapigns/Export";
 import CampaignDeletePermissions from "../Roles_&_permissions/Host_Permissions/Live_Campaigns/Camapigns/Delete";
+import LivestreamsAddPermissions from "../Roles_&_permissions/Host_Permissions/Dashboard/Add_Livestream";
+import ProductsAddPermissions from "../Roles_&_permissions/Host_Permissions/Dashboard/Add_Product";
+import LivescopesAddPermissions from "../Roles_&_permissions/Host_Permissions/Dashboard/Add_Livescope";
 describe("Automation test for Auth", () => {
   let dataSet = {};
   before(() => {
@@ -194,6 +197,18 @@ describe("Automation test for Auth", () => {
     cy.visit(`${dataSet.link}/auth/login`);
     const exportpermission = new CampaignExportDataPermissions();
     exportpermission.exportPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Add livestream from home dashboard", () => {
+    const livestreamaddpermission = new LivestreamsAddPermissions();
+    livestreamaddpermission.addPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Add product from home dashboard", () => {
+    const productaddpermission = new ProductsAddPermissions();
+    productaddpermission.addPermissions(globalResultTracker, dataSet);
+  });
+  it("check host permissions for Add livescope account from home dashboard", () => {
+    const livescopeaddpermission = new LivescopesAddPermissions();
+    livescopeaddpermission.addPermissions(globalResultTracker, dataSet);
   });
   after(() => {
     commonAction.logResults(globalResultTracker, "Roles & Permissions");

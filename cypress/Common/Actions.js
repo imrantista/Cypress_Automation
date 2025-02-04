@@ -7,7 +7,6 @@ class CommonActions {
         .then((dataSet) => {
           cy.session("user-session", () => {
             cy.visit(`${dataSet.link}/auth/login`);
-            cy.visit(`${dataSet.link}/auth/login`);
             cy.get('input[name="username"]').clear().type(dataSet.useremail);
             cy.get('input[name="password"]').clear().type(dataSet.password);
             cy.get('button[type="submit"]').click();
@@ -94,9 +93,9 @@ class CommonActions {
     cy.get(selector).clear();
   }
   //waiting for item visible
-  itemVisibility(selector) {
-    cy.get(selector, { timeout: 20000 }).should("be.visible");
-  }
+  itemVisibility(selector, timeout = 10000) {
+    cy.get(selector, { timeout }).should("be.visible");
+}
   //Element check function
   checkElementVisibility(
     selector,

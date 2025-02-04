@@ -1,5 +1,5 @@
 import { element, text } from "wd/lib/commands";
-import CommonActions from "../Common/Actions";
+import CommonActions from "../../Common/Actions";
 class LivescopeComponent {
   livescopeComponent(resultTracker) {
     const commonAction = new CommonActions();
