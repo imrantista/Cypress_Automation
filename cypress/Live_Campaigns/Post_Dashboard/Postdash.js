@@ -42,19 +42,19 @@ class DashElements {
         description: "Revenue found in livestream post dashboard",
       },
       {
-        selector: ".grid-cols-2 > :nth-child(2) > .font-medium",
+        selector: ".pt-4 > .font-medium",
         text: "Livestream Score",
         description: "Livestream Score found in livestream post dashboard",
       },
       {
-        selector: ".col-span-3 > :nth-child(1) > :nth-child(1) > .font-medium",
-        text: "Average Order Value",
-        description: "Average Order Value found in livestream post dashboard",
+        selector: ".col-span-5 > :nth-child(1) > :nth-child(1) > .font-medium",
+        text: "Orders",
+        description: "Orders found in livestream post dashboard",
       },
       {
-        selector: ".col-span-3 > :nth-child(1) > :nth-child(2) > .font-medium",
-        text: "Average Selling Price",
-        description: "Average Selling Price found in livestream post dashboard",
+        selector: ".col-span-5 > :nth-child(1) > :nth-child(2) > .font-medium",
+        text: "Average Order Value",
+        description: "Average Order Value found in livestream post dashboard",
       },
       {
         selector: ":nth-child(1) > :nth-child(3) > .font-medium",
@@ -63,79 +63,105 @@ class DashElements {
       },
       {
         selector: ":nth-child(1) > :nth-child(4) > .font-medium",
-        text: "Views",
-        description: "Views found in livestream post dashboard",
-      },
-      {
-        selector: ":nth-child(1) > :nth-child(5) > .font-medium",
-        text: "Unique Viewers",
-        description: "Unique Viewers found in livestream post dashboard",
-      },
-      {
-        selector: ":nth-child(1) > :nth-child(6) > .font-medium",
-        text: "New Follows",
-        description: "New Follows found in livestream post dashboard",
-      },
-      {
-        selector: ":nth-child(1) > :nth-child(7) > .font-medium",
-        text: "Comments",
-        description: "Comments found in livestream post dashboard",
-      },
-      {
-        selector: ":nth-child(1) > :nth-child(8) > .font-medium",
-        text: "Shares",
-        description: "Shares found in livestream post dashboard",
-      },
-      {
-        selector: ":nth-child(1) > :nth-child(9) > .font-medium",
         text: "Total Engagement",
         description: "Total Engagement found in livestream post dashboard",
       },
       {
+        selector: ":nth-child(1) > :nth-child(5) > .font-medium",
+        text: "Shares",
+        description: "Shares found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(1) > :nth-child(6) > .font-medium",
+        text: "Gifts",
+        description: "Gifts found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(1) > :nth-child(7) > .font-medium",
+        text: "Engagement Rate",
+        description: "Engagement Rate found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(1) > :nth-child(8) > .font-medium",
+        text: "Unique Viewers",
+        description: "Unique Viewers found in livestream post dashboard",
+      },
+      {
         selector: ":nth-child(3) > :nth-child(1) > .font-medium",
-        text: "GPM",
-        description: "GPM found in livestream post dashboard",
-      },
-      {
-        selector: ":nth-child(3) > :nth-child(2) > .font-medium",
-        text: "Orders",
-        description: "Orders found in livestream post dashboard",
-      },
-      {
-        selector: ":nth-child(3) > :nth-child(3) > .font-medium",
         text: "Unit(s) Sold",
         description: "Unit(s) Sold found in livestream post dashboard",
       },
       {
+        selector: ":nth-child(3) > :nth-child(2) > .font-medium",
+        text: "Average Selling Price",
+        description:
+          "Average Selling Price found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(3) > :nth-child(3) > .font-medium",
+        text: "GPM",
+        description: "GPM found in livestream post dashboard",
+      },
+      {
         selector: ":nth-child(3) > :nth-child(4) > .font-medium",
-        text: "Buyers",
-        description: "Buyers found in livestream post dashboard",
+        text: "Comments",
+        description: "Comments found in livestream post dashboard",
       },
       {
         selector: ":nth-child(3) > :nth-child(5) > .font-medium",
+        text: "Likes",
+        description: "Likes found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(3) > :nth-child(6) > .font-medium",
+        text: "New Follows",
+        description: "New Follows found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(3) > :nth-child(7) > .font-medium",
+        text: "Views",
+        description: "Views found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(3) > :nth-child(8) > .font-medium",
         text: "Peak Concurrent Viewers",
         description:
           "Peak Concurrent Viewers found in livestream post dashboard",
       },
       {
-        selector: ":nth-child(3) > :nth-child(6) > .font-medium",
+        selector: ":nth-child(5) > :nth-child(1) > .font-medium",
+        text: "Product Impressions",
+        description: "Product Impressions found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(5) > :nth-child(2) > .font-medium",
+        text: "Product Clicks",
+        description: "Product Clicks found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(5) > :nth-child(3) > .font-medium",
+        text: "Click-Through Rate (CTR)",
+        description: "Click-Through Rate (CTR) found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(5) > :nth-child(4) > .font-medium",
+        text: "Click-to-Order Rate (CTOR)",
+        description: "Click-to-Order Rate (CTOR) found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(5) > :nth-child(5) > .font-medium",
+        text: "Buyers",
+        description: "Buyers found in livestream post dashboard",
+      },
+      {
+        selector: ":nth-child(5) > :nth-child(6) > .font-medium",
         text: "Follower CR",
         description: "Follower CR found in livestream post dashboard",
       },
       {
-        selector: ":nth-child(3) > :nth-child(7) > .font-medium",
-        text: "Likes",
-        description: "Likes found in livestream post dashboard",
-      },
-      {
-        selector: ":nth-child(3) > :nth-child(8) > .font-medium",
-        text: "Gifts",
-        description: "Gifts found in livestream post dashboard",
-      },
-      {
-        selector: ":nth-child(3) > :nth-child(9) > .font-medium",
-        text: "Engagement Rate",
-        description: "Engagement Rate found in livestream post dashboard",
+        selector: ":nth-child(5) > :nth-child(7) > .font-medium",
+        text: "Average View Duration",
+        description: "Average View Duration in livestream post dashboard",
       },
       //Graph component//
       {

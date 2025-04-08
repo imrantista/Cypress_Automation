@@ -49,7 +49,7 @@ describe("Automation test for Users page", () => {
     cy.visit(`${dataSet.link}/users?tab=Invited_Users`);
     commonAction.itemVisibility(".vs-btn");
     commonAction.clickElement(".vs-btn > .flex");
-    commonAction.selectAndType('input[name="email"]', dataSet.email);
+    commonAction.selectAndType('input[name="email"]', dataSet.useremail);
     const inviteownuser = new OwnInvitation();
     inviteownuser.ownInvitation(globalResultTracker);
   });

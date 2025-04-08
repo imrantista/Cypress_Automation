@@ -15,6 +15,7 @@ class ViewLivestream {
       ":nth-child(1) > :nth-child(10) > .flex > .bg-primary\\/\\[5\\%\\] > svg"
     );
     commonAction.itemVisibility(".bg-primary > .text-white")
+    cy.wait(2000);
     const elements = [
       {
         selector: ".justify-end > .py-1\\.5 > .text-\\[10px\\]",
@@ -77,7 +78,7 @@ class ViewLivestream {
         description: "Viewer Comments found in Live-monitor page",
       },
       {
-        selector: ".h-\\[858px\\] > .flex",
+        selector: ".h-\\[858px\\] > .flex > p",
         text: "No comments yet",
         description: "No comments yet found in Live-monitor page",
       },
@@ -97,62 +98,67 @@ class ViewLivestream {
         description: "Run of Show found in Live-monitor page",
       },
       {
-        selector: ":nth-child(1) > :nth-child(1) > .font-medium",
-        text: "Revenue",
-        description: "Revenue found in Live-monitor page",
-      },
-      {
-        selector: ".rounded-\\[10px\\] > :nth-child(1) > :nth-child(2) > .font-medium",
-        text: "Orders",
-        description: "Orders found in Live-monitor page",
-      },
-      {
-        selector: ":nth-child(1) > :nth-child(3) > .font-medium",
+        selector: ".justify-center > .font-medium",
         text: "Views",
         description: "Views found in Live-monitor page",
       },
       {
-        selector: ":nth-child(1) > :nth-child(4) > .font-medium",
+        selector: ".col-span-5 > .grid > :nth-child(1) > .font-medium",
+        text: "Revenue",
+        description: "Revenue found in Live-monitor page",
+      },
+      {
+        selector: ".grid > :nth-child(2) > .font-medium",
+        text: "Orders",
+        description: "Orders found in Live-monitor page",
+      },
+      {
+        selector: ":nth-child(3) > .font-medium",
         text: "Unique Viewers",
         description: "Unique Viewers found in Live-monitor page",
       },
       {
-        selector: ":nth-child(1) > :nth-child(5) > .font-medium",
-        text: "Comments",
-        description: "Comments found in Live-monitor page",
-      },
-      {
-        selector: ":nth-child(1) > :nth-child(6) > .font-medium",
-        text: "Shares",
-        description: "Shares found in Live-monitor page",
-      },
-      {
-        selector: ".rounded-\\[10px\\] > :nth-child(3) > :nth-child(1) > .font-medium",
-        text: "GPM",
-        description: "GPM found in Live-monitor page",
-      },
-      {
-        selector: ":nth-child(3) > :nth-child(2) > .font-medium",
-        text: "Unit(s) Sold",
-        description: "Unit(s) Sold found in Live-monitor page",
-      },
-      {
-        selector: ":nth-child(3) > :nth-child(3) > .font-medium",
-        text: "Peak Concurrent Viewers",
-        description: "Peak Concurrent Viewers found in Live-monitor page",
-      },
-      {
-        selector: ":nth-child(3) > :nth-child(4) > .font-medium",
-        text: "New Follows",
-        description: "New Follows found in Live-monitor page",
-      },
-      {
-        selector: ":nth-child(3) > :nth-child(5) > .font-medium",
+        selector: ":nth-child(4) > .font-medium",
         text: "Likes",
         description: "Likes found in Live-monitor page",
       },
       {
-        selector: ":nth-child(3) > :nth-child(6) > .font-medium",
+        selector: ":nth-child(5) > .font-medium",
+        text: "Comments",
+        description: "Comments found in Live-monitor page",
+      },
+      {
+        selector: ":nth-child(6) > .font-medium",
+        text: "Shares",
+        description: "Shares found in Live-monitor page",
+      },
+      {
+        selector: ":nth-child(7) > .font-medium",
+        text: "GPM",
+        description: "GPM found in Live-monitor page",
+      },
+      {
+        selector: ":nth-child(8) > .font-medium",
+        text: "Unit(s) Sold",
+        description: "Unit(s) Sold found in Live-monitor page",
+      },
+      {
+        selector: ":nth-child(9) > .font-medium",
+        text: "Buyers",
+        description: "Buyers found in Live-monitor page",
+      },
+      {
+        selector: ":nth-child(10) > .font-medium",
+        text: "Peak Concurrent Viewers",
+        description: "Peak Concurrent Viewers found in Live-monitor page",
+      },
+      {
+        selector: ":nth-child(11) > .font-medium",
+        text: "New Follows",
+        description: "New Follows found in Live-monitor page",
+      },
+      {
+        selector: ":nth-child(12) > .font-medium",
         text: "Gifts",
         description: "Gifts found in Live-monitor page",
       },
@@ -167,6 +173,7 @@ class ViewLivestream {
         resultTracker
       );
     });
+
   }
 }
 export default ViewLivestream;

@@ -15,11 +15,6 @@ class AccountElements{
             },
             {
                 selector: ":nth-child(2) > .text-\\[12px\\]",
-                text: "TikTok Username",
-                descriptions: "TikTok Username found in account settings tab"
-            },
-            {
-                selector: ":nth-child(3) > .text-\\[12px\\]",
                 text: "Account Owner",
                 descriptions: "Account Owner found in account settings tab"
             },
