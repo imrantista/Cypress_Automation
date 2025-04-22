@@ -7,9 +7,9 @@ class ValidUser {
     commonAction.selectAndType('input[name="username"]', dataSet.useremail);
     commonAction.selectAndType('input[name="password"]', dataSet.password);
     commonAction.clickElement('button[type="submit"]');
-    commonAction.itemVisibility('[title="Go to Live Campaigns page"]')
+    commonAction.itemVisibility('[href="/live-campaigns"] > .text-primary')
     commonAction.checkElementVisibility(
-        '[title="Go to Live Campaigns page"]',
+        '[href="/live-campaigns"] > .text-primary',
         "Live Campaigns",
         "Able to login with valid credentials",
         "unable to login with valid credentials",

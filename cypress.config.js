@@ -3,6 +3,7 @@ import nodemailer from "nodemailer";
 export default defineConfig({
   viewportHeight: 1080,
   viewportWidth: 1920,
+
   e2e: {
     setupNodeEvents(on, config) {
       on("task", {
@@ -33,6 +34,13 @@ export default defineConfig({
         },
       });
       return config;
+    },
+  },
+
+  component: {
+    devServer: {
+      framework: "react",
+      bundler: "webpack",
     },
   },
 });

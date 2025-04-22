@@ -10,7 +10,7 @@ class CommonActions {
             cy.get('input[name="username"]').clear().type(dataSet.useremail);
             cy.get('input[name="password"]').clear().type(dataSet.password);
             cy.get('button[type="submit"]').click();
-            cy.get('[title="Go to Live Campaigns page"]').should("be.visible");
+            cy.get('[href="/live-campaigns"] > .text-primary').should("be.visible");
           });
         });
     });
@@ -24,7 +24,7 @@ class CommonActions {
           cy.get('input[name="username"]').clear().type(dataSet.hostuser);
           cy.get('input[name="password"]').clear().type(dataSet.password);
           cy.get('button[type="submit"]').click();
-          cy.get('[title="Go to Live Campaigns page"]').should("be.visible");
+          cy.get('[href="/live-campaigns"] > .text-primary').should("be.visible");
           cy.wait(2000);
         });
       });
