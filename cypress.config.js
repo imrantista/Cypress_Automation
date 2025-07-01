@@ -11,13 +11,13 @@ export default defineConfig({
           const transporter = nodemailer.createTransport({
             service: "Gmail",
             auth: {
-              user: "mostafa.imran@vivasoftltd.com",
-              pass: "egkpmgdnbbgyxhjj",
+              user: "test@gmail.com",
+              pass: "test",
             },
           });
           const mailOptions = {
-            from: '"GM Imran" <mostafa.imran@vivasoftltd.com>',
-            to: "imran.cse04@gmail.com",
+            from: '"GM Imran" <test@gmail.com>',
+            to: "test@gmail.com",
             subject: "Stickler Automation Test Result",
             html: emailHtml,
           };
