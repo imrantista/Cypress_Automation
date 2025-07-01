@@ -272,7 +272,7 @@ class CommonActions {
       });
   }
   //visitLivesteamPostDash
-  /*visitLivesteamPostDash() {
+  visitLivesteamPostDash() {
     cy.fixture("LoginData.json")
       .as("dataset")
       .then((data) => {
@@ -297,7 +297,7 @@ class CommonActions {
         this.itemVisibility(".mb-4 > .items-center > .text-black");
         cy.wait(4000);
       });
-  }*/
+  }
   //wait for Toast
   waitFOrtoast(timeout = 4000) {
     cy.get(
