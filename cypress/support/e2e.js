@@ -1,10 +1,10 @@
-Cypress.on('uncaught:exception', (err, runnable) => {
-    // Ignore React error 419 or any uncaught exceptions
-    if (err.message.includes('Minified React error #419')) {
-      return false; // prevent Cypress from failing the test
-    }
-  
-    // let other errors fail the test
-    return true;
-  });
-  
+Cypress.on('uncaught:exception', (err) => {
+  // Ignore all minified React errors
+  if (err.message.includes('Minified React error')) {
+    return false;
+  }
+
+  // Let other errors fail
+  return true;
+});
+

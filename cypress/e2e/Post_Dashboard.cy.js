@@ -19,14 +19,12 @@ describe("Automation test for Livestream post Dashboard", () => {
   const commonAction = new CommonActions();
   commonAction.LoginSession();
   it("Verify the presence and correctness of the elements in Livestreams post dashboard page", () => {
-    cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
-    commonAction.itemVisibility(".vs-btn");
+    cy.visit(`${dataSet.livestreamPostDashbordlink}`);
     const dashelement = new DashElements();
     dashelement.dashElements(globalResultTracker);
   });
   it("Validate the functionality Livestream transcriptions", () => {
-    cy.visit(`${dataSet.link}/live-campaigns?tab=Livestreams`);
-    commonAction.itemVisibility(".vs-btn");
+    cy.visit(`${dataSet.livestreamPostDashbordlink}`);
     const transcriptions = new Transcription();
     transcriptions.transcription(globalResultTracker);
   });

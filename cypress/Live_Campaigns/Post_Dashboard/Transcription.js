@@ -2,7 +2,6 @@ import CommonActions from "../../Common/Actions";
 class Transcription {
   transcription(resultTracker) {
     const commonAction = new CommonActions();
-    commonAction.visitLivesteamPostDash();
     cy.get(".flex-1.overflow-auto.app-content").then(($element) => {
       const scrollHeight = $element[0].scrollHeight;
       const halfHeight = scrollHeight / 3;

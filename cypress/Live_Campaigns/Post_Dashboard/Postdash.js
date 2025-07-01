@@ -2,7 +2,6 @@ import CommonActions from "../../Common/Actions";
 class DashElements {
   dashElements(resultTracker) {
     const commonAction = new CommonActions();
-    commonAction.visitLivesteamPostDash()
     cy.wait(4000)
     const elements = [
         //Metrics component//
